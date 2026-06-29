@@ -22,4 +22,7 @@ export class ResidentService {
   deleteResident(id: number): Observable<any> {
     return this.http.delete<any>(`${this.apiUrl}/${id}`);
   }
+  updateResident(id: number, resident: any) {
+  return this.http.put(`${this.apiUrl}/${id}`, resident);
+}
 }

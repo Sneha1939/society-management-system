@@ -14,7 +14,8 @@ export class Residents implements OnInit {
 
   residents: any[] = [];
   showAddModal = false;
-
+showEditModal = false;
+selectedResidentId = 0;
   residentForm = new FormGroup({
     fullName: new FormControl('', Validators.required),
     flatNumber: new FormControl('', Validators.required),
@@ -51,12 +52,33 @@ export class Residents implements OnInit {
   openAddModal(): void {
     this.showAddModal = true;
   }
+openEditModal(index: number): void {
 
+  const resident = this.residents[index];
+
+  this.selectedResidentId = resident.id;
+
+  this.residentForm.patchValue({
+    fullName: resident.full_name,
+    flatNumber: resident.flat_number,
+    phoneNumber: resident.phone_number,
+    email: resident.email,
+    emergencyContact: resident.emergency_contact,
+    familyMembers: resident.family_members
+  });
+
+  this.showEditModal = true;
+}
   closeAddModal(): void {
     this.showAddModal = false;
     this.residentForm.reset();
   }
+closeEditModal(): void {
 
+  this.showEditModal = false;
+  this.residentForm.reset();
+
+}
   addResident(): void {
     if (this.residentForm.invalid) {
       this.residentForm.markAllAsTouched();
@@ -82,11 +104,48 @@ export class Residents implements OnInit {
       }
     });
   }
+updateResident(): void {
 
+  if (this.residentForm.invalid) {
+    this.residentForm.markAllAsTouched();
+    return;
+  }
+
+  const updatedResident = {
+    fullName: this.residentForm.value.fullName,
+    flatNumber: this.residentForm.value.flatNumber,
+    phoneNumber: this.residentForm.value.phoneNumber,
+    email: this.residentForm.value.email,
+    emergencyContact: this.residentForm.value.emergencyContact,
+    familyMembers: this.residentForm.value.familyMembers
+  };
+
+  this.residentService
+    .updateResident(this.selectedResidentId, updatedResident)
+    .subscribe({
+      next: () => {
+        this.closeEditModal();
+        this.loadResidents();
+      },
+      error: (err) => {
+        console.log(err);
+      }
+    });
+}
   deleteResident(index: number): void {
-    const resident = this.residents[index];
 
-    this.residentService.deleteResident(resident.id).subscribe({
+  const resident = this.residents[index];
+
+  const confirmed = confirm(
+    `Are you sure you want to delete ${resident.full_name}?`
+  );
+
+  if (!confirmed) {
+    return;
+  }
+
+  this.residentService.deleteResident(resident.id)
+    .subscribe({
       next: () => {
         this.loadResidents();
       },
@@ -94,5 +153,6 @@ export class Residents implements OnInit {
         console.log(err);
       }
     });
-  }
+
+}
 }

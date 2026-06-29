@@ -31,10 +31,15 @@
         <td>{{ resident.family_members }}</td>
 
         <td>
-          <button class="delete-btn"
-                  (click)="deleteResident(i)">
-            Delete
-          </button>
+          <button class="edit-btn"
+        (click)="openEditModal(i)">
+  Edit
+</button>
+
+<button class="delete-btn"
+        (click)="deleteResident(i)">
+  Delete
+</button>
         </td>
       </tr>
     </tbody>
@@ -95,6 +100,60 @@
             </button>
 
             <button (click)="closeAddModal()">
+                Cancel
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div class="modal-backdrop" *ngIf="showEditModal">
+    <div class="modal">
+
+        <h2>Edit Resident</h2>
+        <form [formGroup]="residentForm">
+
+            <input
+                type="text"
+                placeholder="Full Name"
+                formControlName="fullName">
+
+            <input
+                type="text"
+                placeholder="Flat Number"
+                formControlName="flatNumber">
+
+            <input
+                type="text"
+                placeholder="Phone Number"
+                formControlName="phoneNumber">
+
+            <input
+                type="email"
+                placeholder="Email"
+                formControlName="email">
+
+            <input
+                type="text"
+                placeholder="Emergency Contact"
+                formControlName="emergencyContact">
+
+            <input
+                type="number"
+                placeholder="Family Members"
+                formControlName="familyMembers">
+
+        </form>
+
+        <div class="buttons">
+
+            <button (click)="updateResident()">
+    Update
+</button>
+
+            <button (click)="closeEditModal()">
                 Cancel
             </button>
 
