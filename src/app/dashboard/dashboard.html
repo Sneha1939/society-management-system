@@ -1,29 +1,54 @@
-<div class="dashboard">
-    <h1>Society Management Dashboard</h1>
-    <p>Welcome Admin</p>
-    <div class="cards">
-        <div class="card">
-            <h3>Total Residents</h3>
-            <p>120</p>
-        </div>
-        <div class="card">
-            <h3>open Complaints</h3>
-            <p>8</p>
-        </div>
-        <div class="card">
+<div class="dashboard-container">
+
+  <h1>Society Management Dashboard</h1>
+  <p class="subtitle">Welcome Admin</p>
+
+  <div class="stats-grid">
+
+    <mat-card class="stat-card">
+      <mat-icon>groups</mat-icon>
+      <h3>Total Residents</h3>
+      <p>120</p>
+    </mat-card>
+
+    <mat-card class="stat-card">
+      <mat-icon>report_problem</mat-icon>
+      <h3>Open Complaints</h3>
+      <p>8</p>
+    </mat-card>
+
+    <mat-card class="stat-card">
+      <mat-icon>directions_walk</mat-icon>
       <h3>Visitors Today</h3>
       <p>15</p>
-    </div>
+    </mat-card>
 
-    <div class="card">
+    <mat-card class="stat-card">
+      <mat-icon>event_available</mat-icon>
       <h3>Amenities Booked</h3>
       <p>4</p>
-    </div>
-    </div>
-    <button routerLink="/complaints">
-  Manage Complaints
-</button>
-<button routerLink="/residents">
-  Manage Residents
-</button>
+    </mat-card>
+
+  </div>
+
+  <div class="action-section">
+
+    <mat-card class="action-card">
+      <h2>Complaint Management</h2>
+      <p>View, resolve and manage resident complaints.</p>
+      <button mat-raised-button color="primary" routerLink="/complaints">
+        Manage Complaints
+      </button>
+    </mat-card>
+
+    <mat-card class="action-card">
+      <h2>Resident Management</h2>
+      <p>Add, update, search and manage society residents.</p>
+      <button mat-raised-button color="primary" routerLink="/residents">
+        Manage Residents
+      </button>
+    </mat-card>
+
+  </div>
+
 </div>
