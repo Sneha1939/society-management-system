@@ -1,0 +1,107 @@
+{
+    "code": 1,
+    "message": "success",
+    "data": [
+        {
+            "District_name": "ANANTNAG",
+            "State_lg_Code": "1",
+            "District_LG_code": "1"
+        },
+        {
+            "District_name": "BANDIPORA",
+            "State_lg_Code": "1",
+            "District_LG_code": "623"
+        },
+        {
+            "District_name": "BARAMULLA",
+            "State_lg_Code": "1",
+            "District_LG_code": "3"
+        },
+        {
+            "District_name": "Budgam",
+            "State_lg_Code": "1",
+            "District_LG_code": "2"
+        },
+        {
+            "District_name": "DODA",
+            "State_lg_Code": "1",
+            "District_LG_code": "4"
+        },
+        {
+            "District_name": "GANDERBAL",
+            "State_lg_Code": "1",
+            "District_LG_code": "626"
+        },
+        {
+            "District_name": "JAMMU",
+            "State_lg_Code": "1",
+            "District_LG_code": "5"
+        },
+        {
+            "District_name": "KATHUA",
+            "State_lg_Code": "1",
+            "District_LG_code": "7"
+        },
+        {
+            "District_name": "KISHTWAR",
+            "State_lg_Code": "1",
+            "District_LG_code": "620"
+        },
+        {
+            "District_name": "KULGAM",
+            "State_lg_Code": "1",
+            "District_LG_code": "622"
+        },
+        {
+            "District_name": "KUPWARA",
+            "State_lg_Code": "1",
+            "District_LG_code": "8"
+        },
+        {
+            "District_name": "POONCH",
+            "State_lg_Code": "1",
+            "District_LG_code": "10"
+        },
+        {
+            "District_name": "PULWAMA",
+            "State_lg_Code": "1",
+            "District_LG_code": "11"
+        },
+        {
+            "District_name": "RAJOURI",
+            "State_lg_Code": "1",
+            "District_LG_code": "12"
+        },
+        {
+            "District_name": "RAMBAN",
+            "State_lg_Code": "1",
+            "District_LG_code": "621"
+        },
+        {
+            "District_name": "REASI",
+            "State_lg_Code": "1",
+            "District_LG_code": "627"
+        },
+        {
+            "District_name": "SAMBA",
+            "State_lg_Code": "1",
+            "District_LG_code": "624"
+        },
+        {
+            "District_name": "SHOPIAN",
+            "State_lg_Code": "1",
+            "District_LG_code": "625"
+        },
+        {
+            "District_name": "SRINAGAR",
+            "State_lg_Code": "1",
+            "District_LG_code": "13"
+        },
+        {
+            "District_name": "UDHAMPUR",
+            "State_lg_Code": "1",
+            "District_LG_code": "14"
+        }
+    ],
+    "customData": null
+}

@@ -1,0 +1,185 @@
+{
+    "code": 1,
+    "message": "success",
+    "data": [{
+        "State_lg_Code": 35,
+        "State_Id": 1,
+        "State_Name": "ANDAMAN AND NICOBAR ISLANDS"
+    },
+    {
+        "State_lg_Code": 28,
+        "State_Id": 2,
+        "State_Name": "ANDHRA PRADESH"
+    },
+    {
+        "State_lg_Code": 12,
+        "State_Id": 3,
+        "State_Name": "ARUNACHAL PRADESH"
+    },
+    {
+        "State_lg_Code": 18,
+        "State_Id": 4,
+        "State_Name": "ASSAM"
+    },
+    {
+        "State_lg_Code": 10,
+        "State_Id": 5,
+        "State_Name": "BIHAR"
+    },
+    {
+        "State_lg_Code": 4,
+        "State_Id": 6,
+        "State_Name": "CHANDIGARH"
+    },
+    {
+        "State_lg_Code": 22,
+        "State_Id": 7,
+        "State_Name": "CHHATTISGARH"
+    },
+    {
+        "State_lg_Code": 7,
+        "State_Id": 8,
+        "State_Name": "DELHI"
+    },
+    {
+        "State_lg_Code": 30,
+        "State_Id": 9,
+        "State_Name": "GOA"
+    },
+    {
+        "State_lg_Code": 24,
+        "State_Id": 10,
+        "State_Name": "GUJARAT"
+    },
+    {
+        "State_lg_Code": 6,
+        "State_Id": 11,
+        "State_Name": "HARYANA"
+    },
+    {
+        "State_lg_Code": 2,
+        "State_Id": 12,
+        "State_Name": "HIMACHAL PRADESH"
+    },
+    {
+        "State_lg_Code": 1,
+        "State_Id": 13,
+        "State_Name": "JAMMU AND KASHMIR"
+    },
+    {
+        "State_lg_Code": 20,
+        "State_Id": 14,
+        "State_Name": "JHARKHAND"
+    },
+    {
+        "State_lg_Code": 29,
+        "State_Id": 15,
+        "State_Name": "KARNATAKA"
+    },
+    {
+        "State_lg_Code": 32,
+        "State_Id": 16,
+        "State_Name": "KERALA"
+    },
+    {
+        "State_lg_Code": 37,
+        "State_Id": 17,
+        "State_Name": "LADAKH"
+    },
+    {
+        "State_lg_Code": 31,
+        "State_Id": 18,
+        "State_Name": "LAKSHADWEEP"
+    },
+    {
+        "State_lg_Code": 23,
+        "State_Id": 19,
+        "State_Name": "MADHYA PRADESH"
+    },
+    {
+        "State_lg_Code": 27,
+        "State_Id": 20,
+        "State_Name": "MAHARASHTRA"
+    },
+    {
+        "State_lg_Code": 14,
+        "State_Id": 21,
+        "State_Name": "MANIPUR"
+    },
+    {
+        "State_lg_Code": 17,
+        "State_Id": 22,
+        "State_Name": "MEGHALAYA"
+    },
+    {
+        "State_lg_Code": 15,
+        "State_Id": 23,
+        "State_Name": "MIZORAM"
+    },
+    {
+        "State_lg_Code": 13,
+        "State_Id": 24,
+        "State_Name": "NAGALAND"
+    },
+    {
+        "State_lg_Code": 21,
+        "State_Id": 25,
+        "State_Name": "ODISHA"
+    },
+    {
+        "State_lg_Code": 34,
+        "State_Id": 26,
+        "State_Name": "PUDUCHERRY"
+    },
+    {
+        "State_lg_Code": 3,
+        "State_Id": 27,
+        "State_Name": "PUNJAB"
+    },
+    {
+        "State_lg_Code": 8,
+        "State_Id": 28,
+        "State_Name": "RAJASTHAN"
+    },
+    {
+        "State_lg_Code": 11,
+        "State_Id": 29,
+        "State_Name": "SIKKIM"
+    },
+    {
+        "State_lg_Code": 33,
+        "State_Id": 30,
+        "State_Name": "TAMIL NADU"
+    },
+    {
+        "State_lg_Code": 36,
+        "State_Id": 31,
+        "State_Name": "TELANGANA"
+    },
+    {
+        "State_lg_Code": 38,
+        "State_Id": 32,
+        "State_Name": "THE DADRA AND NAGAR HAVELI AND DAMAN AND DIU"
+    },
+    {
+        "State_lg_Code": 16,
+        "State_Id": 33,
+        "State_Name": "TRIPURA"
+    },
+    {
+        "State_lg_Code": 5,
+        "State_Id": 34,
+        "State_Name": "UTTARAKHAND"
+    },
+    {
+        "State_lg_Code": 9,
+        "State_Id": 35,
+        "State_Name": "UTTAR PRADESH"
+    },
+    {
+        "State_lg_Code": 19,
+        "State_Id": 36,
+        "State_Name": "WEST BENGAL"
+    }],
+    "customData": null
+}

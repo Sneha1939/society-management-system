@@ -1,0 +1,172 @@
+{
+    "code": 1,
+    "message": "success",
+    "data": [
+        {
+            "District_name": "AHMADABAD",
+            "State_lg_Code": "24",
+            "District_LG_code": "438"
+        },
+        {
+            "District_name": "AMRELI",
+            "State_lg_Code": "24",
+            "District_LG_code": "439"
+        },
+        {
+            "District_name": "ANAND",
+            "State_lg_Code": "24",
+            "District_LG_code": "440"
+        },
+        {
+            "District_name": "ARVALLI",
+            "State_lg_Code": "24",
+            "District_LG_code": "672"
+        },
+        {
+            "District_name": "BANAS KANTHA",
+            "State_lg_Code": "24",
+            "District_LG_code": "441"
+        },
+        {
+            "District_name": "BHARUCH",
+            "State_lg_Code": "24",
+            "District_LG_code": "442"
+        },
+        {
+            "District_name": "BHAVNAGAR",
+            "State_lg_Code": "24",
+            "District_LG_code": "443"
+        },
+        {
+            "District_name": "BOTAD",
+            "State_lg_Code": "24",
+            "District_LG_code": "676"
+        },
+        {
+            "District_name": "CHHOTAUDEPUR",
+            "State_lg_Code": "24",
+            "District_LG_code": "668"
+        },
+        {
+            "District_name": "DANG",
+            "State_lg_Code": "24",
+            "District_LG_code": "444"
+        },
+        {
+            "District_name": "DEVBHUMI DWARKA",
+            "State_lg_Code": "24",
+            "District_LG_code": "674"
+        },
+        {
+            "District_name": "DOHAD",
+            "State_lg_Code": "24",
+            "District_LG_code": "445"
+        },
+        {
+            "District_name": "GANDHINAGAR",
+            "State_lg_Code": "24",
+            "District_LG_code": "446"
+        },
+        {
+            "District_name": "GIR SOMNATH",
+            "State_lg_Code": "24",
+            "District_LG_code": "675"
+        },
+        {
+            "District_name": "JAMNAGAR",
+            "State_lg_Code": "24",
+            "District_LG_code": "447"
+        },
+        {
+            "District_name": "JUNAGADH",
+            "State_lg_Code": "24",
+            "District_LG_code": "448"
+        },
+        {
+            "District_name": "KACHCHH",
+            "State_lg_Code": "24",
+            "District_LG_code": "449"
+        },
+        {
+            "District_name": "KHEDA",
+            "State_lg_Code": "24",
+            "District_LG_code": "450"
+        },
+        {
+            "District_name": "MAHESANA",
+            "State_lg_Code": "24",
+            "District_LG_code": "451"
+        },
+        {
+            "District_name": "Mahisagar",
+            "State_lg_Code": "24",
+            "District_LG_code": "669"
+        },
+        {
+            "District_name": "MORBI",
+            "State_lg_Code": "24",
+            "District_LG_code": "673"
+        },
+        {
+            "District_name": "NARMADA",
+            "State_lg_Code": "24",
+            "District_LG_code": "452"
+        },
+        {
+            "District_name": "NAVSARI",
+            "State_lg_Code": "24",
+            "District_LG_code": "453"
+        },
+        {
+            "District_name": "PANCH MAHALS",
+            "State_lg_Code": "24",
+            "District_LG_code": "454"
+        },
+        {
+            "District_name": "PATAN",
+            "State_lg_Code": "24",
+            "District_LG_code": "455"
+        },
+        {
+            "District_name": "PORBANDAR",
+            "State_lg_Code": "24",
+            "District_LG_code": "456"
+        },
+        {
+            "District_name": "RAJKOT",
+            "State_lg_Code": "24",
+            "District_LG_code": "457"
+        },
+        {
+            "District_name": "SABAR KANTHA",
+            "State_lg_Code": "24",
+            "District_LG_code": "458"
+        },
+        {
+            "District_name": "SURAT",
+            "State_lg_Code": "24",
+            "District_LG_code": "459"
+        },
+        {
+            "District_name": "SURENDRANAGAR",
+            "State_lg_Code": "24",
+            "District_LG_code": "460"
+        },
+        {
+            "District_name": "TAPI",
+            "State_lg_Code": "24",
+            "District_LG_code": "641"
+        },
+        {
+            "District_name": "VADODARA",
+            "State_lg_Code": "24",
+            "District_LG_code": "461"
+        },
+        {
+            "District_name": "VALSAD",
+            "State_lg_Code": "24",
+            "District_LG_code": "462"
+        }
+    ],
+    "customData": null
+}

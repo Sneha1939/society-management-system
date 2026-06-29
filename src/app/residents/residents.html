@@ -1,0 +1,105 @@
+<div class="residents-page">
+
+  <div class="header">
+    <h2>Resident Management</h2>
+
+    <button class="add-btn" (click)="openAddModal()">
+      + Add Resident
+    </button>
+  </div>
+
+  <table *ngIf="residents.length > 0">
+    <thead>
+      <tr>
+        <th>S.No</th>
+        <th>Name</th>
+        <th>Flat</th>
+        <th>Phone</th>
+        <th>Email</th>
+        <th>Family Members</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let resident of residents; let i=index">
+        <td>{{ i+1 }}</td>
+        <td>{{ resident.full_name }}</td>
+        <td>{{ resident.flat_number }}</td>
+        <td>{{ resident.phone_number }}</td>
+        <td>{{ resident.email }}</td>
+        <td>{{ resident.family_members }}</td>
+
+        <td>
+          <button class="delete-btn"
+                  (click)="deleteResident(i)">
+            Delete
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p *ngIf="residents.length===0">
+    No residents added yet.
+  </p>
+
+</div>
+
+<!-- Modal -->
+
+<div class="modal-backdrop" *ngIf="showAddModal">
+
+    <div class="modal">
+
+        <h2>Add Resident</h2>
+
+        <form [formGroup]="residentForm">
+
+            <input
+                type="text"
+                placeholder="Full Name"
+                formControlName="fullName">
+
+            <input
+                type="text"
+                placeholder="Flat Number"
+                formControlName="flatNumber">
+
+            <input
+                type="text"
+                placeholder="Phone Number"
+                formControlName="phoneNumber">
+
+            <input
+                type="email"
+                placeholder="Email"
+                formControlName="email">
+
+            <input
+                type="text"
+                placeholder="Emergency Contact"
+                formControlName="emergencyContact">
+
+            <input
+                type="number"
+                placeholder="Family Members"
+                formControlName="familyMembers">
+
+        </form>
+
+        <div class="buttons">
+
+            <button (click)="addResident()">
+                Save
+            </button>
+
+            <button (click)="closeAddModal()">
+                Cancel
+            </button>
+
+        </div>
+
+    </div>
+
+</div>

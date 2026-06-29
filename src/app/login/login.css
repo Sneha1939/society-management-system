@@ -1,0 +1,92 @@
+.login-page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f4f7fb;
+  font-family: Arial, sans-serif;
+}
+
+.login-card {
+  width: 360px;
+  padding: 30px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+.login-card h2 {
+  margin: 0;
+  text-align: center;
+  color: #222;
+}
+
+.subtitle {
+  text-align: center;
+  color: #666;
+  margin-bottom: 25px;
+}
+
+.form-group {
+  margin-bottom: 18px;
+}
+
+label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: bold;
+  color: #333;
+}
+
+input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  outline: none;
+}
+
+input:focus {
+  border-color: #2563eb;
+}
+
+.error {
+  color: red;
+  font-size: 13px;
+  margin-top: 6px;
+}
+
+.button-group {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+button {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.login-btn {
+  background-color: #2563eb;
+  color: white;
+}
+
+.reset-btn {
+  background-color: #e5e7eb;
+  color: #111;
+}
+
+.login-btn:hover {
+  background-color: #1d4ed8;
+}
+
+.reset-btn:hover {
+  background-color: #d1d5db;
+}
+
