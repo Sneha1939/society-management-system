@@ -2,11 +2,11 @@ import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule, FormGroup, FormControl, Validators  } from '@angular/forms';
 import { ResidentService } from '../services/resident';
-
+import { Navbar } from '../layout/navbar/navbar';
 @Component({
   selector: 'app-residents',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, FormsModule],
+  imports: [CommonModule, ReactiveFormsModule, FormsModule, Navbar],
   templateUrl: './residents.html',
   styleUrl: './residents.css'
 })

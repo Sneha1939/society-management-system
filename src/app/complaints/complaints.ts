@@ -4,10 +4,11 @@ import {ReactiveFormsModule, FormGroup, FormControl, Validators} from '@angular/
 import { ComplaintService } from '../services/complaint';
 import { OnInit } from '@angular/core';
 import { ChangeDetectorRef } from '@angular/core';
+import { Navbar } from '../layout/navbar/navbar';
 @Component({
   selector: 'app-complaints',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, Navbar],
   templateUrl: './complaints.html',
   styleUrl: './complaints.css',
 })
