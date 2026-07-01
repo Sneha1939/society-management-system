@@ -16,7 +16,7 @@ import { Navbar } from '../layout/navbar/navbar';
 export class Dashboard implements OnInit {
 
   stats: any = {};
-
+today = new Date();
   constructor(private dashboardService: DashboardService) {}
 
   ngOnInit(): void {

@@ -18,16 +18,28 @@
   margin-bottom: 30px;
 }
 
-.stat-card {
-  padding: 20px;
-  text-align: center;
+.stat-card{
+    height:180px;
+    border-radius:18px !important;
+    padding:22px;
+    cursor:pointer;
+    transition:.3s;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
 }
 
-.stat-card mat-icon {
-  font-size: 38px;
-  width: 38px;
-  height: 38px;
-  color: #1976d2;
+.stat-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 15px 30px rgba(0,0,0,.15);
+}
+
+mat-icon{
+
+    font-size:48px;
+    width:48px;
+    height:48px;
+
 }
 
 .stat-card h3 {
@@ -53,4 +65,69 @@
 
 .action-card p {
   color: #666;
+}
+.welcome-banner{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:linear-gradient(135deg,#1976d2,#42a5f5);
+    color:white;
+    padding:25px;
+    border-radius:16px;
+    margin-bottom:25px;
+}
+
+.welcome-banner h1{
+    margin:0;
+}
+
+.welcome-banner p{
+    margin-top:8px;
+    opacity:.9;
+}
+
+.date-box{
+    background:white;
+    color:#1976d2;
+    padding:12px 18px;
+    border-radius:10px;
+    font-weight:bold;
+}
+.residents h1{
+    color:#1976d2;
+}
+
+.complaints h1{
+    color:#ff9800;
+}
+
+.waiting h1{
+    color:#f44336;
+}
+
+.resolved h1{
+    color:#4caf50;
+}
+.card-top{
+    display:flex;
+    justify-content:flex-start;
+}
+
+.card-content{
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+}
+
+.card-content h3{
+    margin:0;
+    color:#555;
+    font-size:18px;
+}
+
+.card-content h1{
+    margin:0;
+    font-size:42px;
+    font-weight:bold;
+    color:#1976d2;
 }

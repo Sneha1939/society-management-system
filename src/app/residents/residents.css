@@ -152,3 +152,33 @@ tr:hover {
 .buttons button:last-child {
   background: #e5e7eb;
 }
+table{
+
+    border-radius:18px;
+    overflow:hidden;
+
+}
+
+tr{
+
+    transition:.2s;
+
+}
+
+tr:hover{
+
+    background:#eef6ff;
+
+}
+
+button{
+
+    transition:.2s;
+
+}
+
+button:hover{
+
+    transform:scale(1.05);
+
+}

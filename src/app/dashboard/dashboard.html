@@ -1,34 +1,68 @@
 <app-navbar></app-navbar>
 <div class="dashboard-container">
 
-  <h1>Society Management Dashboard</h1>
-  <p class="subtitle">Welcome Admin</p>
+  <div class="welcome-banner">
+    <div>
+        <h1>Good Evening, Admin 👋</h1>
+        <p>Welcome back to Smart Society Management System</p>
+    </div>
 
+    <div class="date-box">
+        {{ today | date:'EEEE, dd MMM yyyy' }}
+    </div>
+</div>
   <div class="stats-grid">
 
-    <mat-card class="stat-card">
-      <mat-icon>groups</mat-icon>
-      <h3>Total Residents</h3>
-      <p>{{ stats.totalResidents }}</p>
-    </mat-card>
+    <mat-card class="stat-card residents">
 
-    <mat-card class="stat-card">
-      <mat-icon>report_problem</mat-icon>
-      <h3>Open Complaints</h3>
-      <p>{{ stats.totalComplaints }}</p>
-    </mat-card>
+  <div class="card-top">
+    <mat-icon>groups</mat-icon>
+  </div>
 
-    <mat-card class="stat-card">
-      <mat-icon>directions_walk</mat-icon>
-      <h3>Waiting Complaints</h3>
-      <p>{{ stats.waitingComplaints }}</p>
-    </mat-card>
+  <div class="card-content">
+    <h3>Total Residents</h3>
+    <h1>{{ stats.totalResidents }}</h1>
+  </div>
 
-    <mat-card class="stat-card">
-      <mat-icon>event_available</mat-icon>
-      <h3>Resolved Complaints</h3>
-      <p>{{ stats.resolvedComplaints }}</p>
-    </mat-card>
+</mat-card>
+
+    <mat-card class="stat-card residents">
+
+  <div class="card-top">
+    <mat-icon>report_problem</mat-icon>
+  </div>
+
+  <div class="card-content">
+    <h3>Open Complaints</h3>
+    <h1>{{ stats.totalComplaints }}</h1>
+  </div>
+
+</mat-card>
+
+   <mat-card class="stat-card residents">
+
+  <div class="card-top">
+    <mat-icon>hourglass_top</mat-icon>
+  </div>
+
+  <div class="card-content">
+    <h3>Waiting Complaints</h3>
+    <h1>{{ stats.waitingComplaints }}</h1>
+  </div>
+
+</mat-card>
+    <mat-card class="stat-card residents">
+
+  <div class="card-top">
+    <mat-icon>task_alt</mat-icon>
+  </div>
+
+  <div class="card-content">
+    <h3>Resolved Complaints</h3>
+    <h1>{{ stats.resolvedComplaints }}</h1>
+  </div>
+
+</mat-card>
 
   </div>
 
