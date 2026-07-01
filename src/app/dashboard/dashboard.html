@@ -8,25 +8,25 @@
     <mat-card class="stat-card">
       <mat-icon>groups</mat-icon>
       <h3>Total Residents</h3>
-      <p>120</p>
+      <p>{{ stats.totalResidents }}</p>
     </mat-card>
 
     <mat-card class="stat-card">
       <mat-icon>report_problem</mat-icon>
       <h3>Open Complaints</h3>
-      <p>8</p>
+      <p>{{ stats.totalComplaints }}</p>
     </mat-card>
 
     <mat-card class="stat-card">
       <mat-icon>directions_walk</mat-icon>
-      <h3>Visitors Today</h3>
-      <p>15</p>
+      <h3>Waiting Complaints</h3>
+      <p>{{ stats.waitingComplaints }}</p>
     </mat-card>
 
     <mat-card class="stat-card">
       <mat-icon>event_available</mat-icon>
-      <h3>Amenities Booked</h3>
-      <p>4</p>
+      <h3>Resolved Complaints</h3>
+      <p>{{ stats.resolvedComplaints }}</p>
     </mat-card>
 
   </div>
