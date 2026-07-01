@@ -4,15 +4,18 @@ A full-stack Society Management System built using Angular, Node.js, Express.js,
 The project helps manage residents, complaints, and society operations through a clean dashboard-based interface.
 
 ## Screenshots
+### Login page
+![alt text](image-4.png)
 
 ### Dashboard
-![alt text](image.png)
+![alt text](image-5.png)
 
 ### Resident Management
-![alt text](image-1.png)
+![alt text](image-6.png)
 ### Complaint Management
-![alt text](image-2.png)
-![alt text](image-3.png)
+![alt text](image-7.png)
+![alt text](image-8.png)
+
 
 ## Features
 
