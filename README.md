@@ -64,6 +64,12 @@ Frontend: Coming Soon
 
 Backend API: Coming Soon
 
+## Author
+
+**Sneha Mishra**
+
+GitHub: https://github.com/Sneha1939
+
 ## Project Structure
 
 ```text
@@ -89,8 +95,3 @@ society-management-system
 ├── package.json
 └── README.md
 
-## Author
-
-**Sneha Mishra**
-
-GitHub: https://github.com/Sneha1939
