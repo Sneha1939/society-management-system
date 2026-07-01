@@ -1,100 +1,106 @@
 <div class="complaints-page">
-  <h2>Complaint Management</h2>
 
-  <form [formGroup]="complaintForm">
-    <div class="form-group">
-      <label>Resident's Name</label>
-      <input
-  type="text"
-  formControlName="residentName"
-  placeholder="Enter resident name" />
+  <div class="page-header">
+    <div>
+      <h1>Complaint Management</h1>
+      <p>Raise, track and manage society complaints</p>
+    </div>
+  </div>
 
-   <p class="error" *ngIf="complaintForm.get('residentName')?.invalid && complaintForm.get('residentName')?.touched">
-        Resident's Name is required
-      </p>
+  <div class="form-card">
+    <h2>Raise Complaint</h2>
+
+    <form [formGroup]="complaintForm">
+
+      <div class="form-grid">
+        <div class="form-group">
+          <label>Resident's Name</label>
+          <input type="text" formControlName="residentName" placeholder="Enter resident name" />
+        </div>
+
+        <div class="form-group">
+          <label>Flat Number</label>
+          <input type="text" formControlName="flatNumber" placeholder="Enter flat number" />
+        </div>
+
+        <div class="form-group">
+          <label>Title</label>
+          <input type="text" formControlName="title" placeholder="Enter complaint title" />
+        </div>
+
+        <div class="form-group">
+          <label>Category</label>
+          <select formControlName="category">
+            <option value="">Select Category</option>
+            <option value="Maintenance">Maintenance</option>
+            <option value="Security">Security</option>
+            <option value="Water">Water</option>
+            <option value="Electricity">Electricity</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Description</label>
+        <textarea formControlName="description" placeholder="Enter complaint description"></textarea>
+      </div>
+
+      <button type="button" class="primary-btn" (click)="submitComplaint()">
+        Submit Complaint
+      </button>
+
+    </form>
+  </div>
+
+  <div class="table-card">
+    <div class="table-header">
+      <div>
+        <h2>Complaint List</h2>
+        <p>Total Complaints: {{ complaints.length }}</p>
+      </div>
     </div>
 
-    <div class="form-group">
-      <label>Flat Number</label>
-      <input
-  type="text"
-  formControlName="flatNumber"
-  placeholder="Enter flat number">
-   <p class="error" *ngIf="complaintForm.get('flatNumber')?.invalid && complaintForm.get('flatNumber')?.touched">
-        Flat Number is required
-      </p>
-    </div>
+    <p class="empty-state" *ngIf="complaints.length === 0">
+      No complaints added yet.
+    </p>
 
-    <div class="form-group">
+    <table *ngIf="complaints.length > 0">
+      <thead>
+        <tr>
+          <th>S.No</th>
+          <th>Resident</th>
+          <th>Flat</th>
+          <th>Title</th>
+          <th>Category</th>
+          <th>Status</th>
+          <th>Action</th>
+        </tr>
+      </thead>
 
-      <label>Title</label>
-      <input type="text" formControlName="title" placeholder="Enter complaint title" />
+      <tbody>
+        <tr *ngFor="let complaint of complaints; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ complaint.resident_name }}</td>
+          <td>{{ complaint.flat_number }}</td>
+          <td>{{ complaint.title }}</td>
+          <td>{{ complaint.category }}</td>
+          <td>
+            <span class="status-badge">
+              {{ complaint.status }}
+            </span>
+          </td>
+          <td>
+            <button type="button" class="resolve-btn" (click)="markResolved(i)">
+              Resolve
+            </button>
+            <button type="button" class="delete-btn" (click)="deleteComplaint(i)">
+              Delete
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 
-      <p class="error" *ngIf="complaintForm.get('title')?.invalid && complaintForm.get('title')?.touched">
-        Title is required
-      </p>
-    </div>
-
-    <div class="form-group">
-      <label>Description</label>
-      <textarea formControlName="description" placeholder="Enter complaint description"></textarea>
-
-      <p class="error" *ngIf="complaintForm.get('description')?.invalid && complaintForm.get('description')?.touched">
-        Description is required
-      </p>
-    </div>
-
-    <div class="form-group">
-      <label>Category</label>
-      <select formControlName="category">
-        <option value="">Select Category</option>
-        <option value="Maintenance">Maintenance</option>
-        <option value="Security">Security</option>
-        <option value="Water">Water</option>
-        <option value="Electricity">Electricity</option>
-        <option value="Other">Other</option>
-      </select>
-
-      <p class="error" *ngIf="complaintForm.get('category')?.invalid && complaintForm.get('category')?.touched">
-        Category is required
-      </p>
-    </div>
-
-    <button type="button" (click)="submitComplaint()">Submit Complaint</button>
-  </form>
-
-  <hr />
-<h4>Total Complaints: {{ complaints.length }}</h4>
-  <h3>Complaint List</h3>
-
-<p *ngIf="complaints.length === 0">No complaints added yet.</p>
-
-<table *ngIf="complaints.length > 0">
-  <thead>
-    <tr>
-      <th>S.No</th>
-      <th>Resident's Name</th>
-      <th>Flat Number</th>
-      <th>Title</th>
-      <th>Category</th>
-      <th>Status</th>
-      <th>Action</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <tr *ngFor="let complaint of complaints; let i = index">
-      <td>{{ i + 1 }}</td>
-      <td>{{ complaint.resident_name }}</td>
-      <td>{{ complaint.flat_number }}</td>
-      <td>{{ complaint.title }}</td>
-      <td>{{ complaint.category }}</td>
-      <td>{{ complaint.status }}</td>
-      <td>
-        <button type="button" (click)="markResolved(i)">Mark Resolved</button>
-        <button type="button" class="delete-btn" (click)="deleteComplaint(i)">Delete</button>
-      </td>
-    </tr>
-  </tbody>
-</table>
 </div>
