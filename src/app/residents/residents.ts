@@ -1,12 +1,12 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule, FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule, FormGroup, FormControl, Validators  } from '@angular/forms';
 import { ResidentService } from '../services/resident';
 
 @Component({
   selector: 'app-residents',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, FormsModule],
   templateUrl: './residents.html',
   styleUrl: './residents.css'
 })
@@ -16,6 +16,7 @@ export class Residents implements OnInit {
   showAddModal = false;
 showEditModal = false;
 selectedResidentId = 0;
+searchText = '';
   residentForm = new FormGroup({
     fullName: new FormControl('', Validators.required),
     flatNumber: new FormControl('', Validators.required),
@@ -80,6 +81,7 @@ closeEditModal(): void {
 
 }
   addResident(): void {
+    console.log("Save button clicked");
     if (this.residentForm.invalid) {
       this.residentForm.markAllAsTouched();
       return;
@@ -154,5 +156,18 @@ updateResident(): void {
       }
     });
 
+}
+get filteredResidents() {
+  if (!this.searchText) {
+    return this.residents;
+  }
+
+  const search = this.searchText.toLowerCase();
+
+  return this.residents.filter(resident =>
+    resident.full_name?.toLowerCase().includes(search) ||
+    resident.flat_number?.toLowerCase().includes(search) ||
+    resident.phone_number?.includes(search)
+  );
 }
 }

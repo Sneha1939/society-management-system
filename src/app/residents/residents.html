@@ -1,12 +1,24 @@
 <div class="residents-page">
 
-  <div class="header">
-    <h2>Resident Management</h2>
-
-    <button class="add-btn" (click)="openAddModal()">
-      + Add Resident
-    </button>
+  <div class="page-header">
+  <div>
+    <h1>Resident Management</h1>
+    <p>Manage society residents, flats and contact details</p>
   </div>
+
+  <button class="add-btn" (click)="openAddModal()">
+    + Add Resident
+  </button>
+</div>
+
+<div class="toolbar">
+  <input
+    class="search-box"
+    type="text"
+    placeholder="Search by name, flat or phone"
+    [(ngModel)]="searchText"
+  />
+</div>
 
   <table *ngIf="residents.length > 0">
     <thead>
@@ -45,9 +57,9 @@
     </tbody>
   </table>
 
-  <p *ngIf="residents.length===0">
-    No residents added yet.
-  </p>
+  <p class="empty-state" *ngIf="filteredResidents.length===0">
+  No residents found.
+</p>
 
 </div>
 
