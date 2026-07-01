@@ -6,13 +6,13 @@ The project helps manage residents, complaints, and society operations through a
 ## Screenshots
 
 ### Dashboard
-(Add dashboard screenshot here)
+![alt text](image.png)
 
 ### Resident Management
-(Add resident management screenshot here)
-
+![alt text](image-1.png)
 ### Complaint Management
-(Add complaint management screenshot here)
+![alt text](image-2.png)
+![alt text](image-3.png)
 
 ## Features
 
