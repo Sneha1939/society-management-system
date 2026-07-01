@@ -1,59 +1,96 @@
-# MyAngularApp
+# Smart Society Management System
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.13.
+A full-stack Society Management System built using Angular, Node.js, Express.js, and MySQL.  
+The project helps manage residents, complaints, and society operations through a clean dashboard-based interface.
 
-## Development server
+## Screenshots
 
-To start a local development server, run:
+### Dashboard
+(Add dashboard screenshot here)
 
-```bash
-ng serve
-```
+### Resident Management
+(Add resident management screenshot here)
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+### Complaint Management
+(Add complaint management screenshot here)
 
-## Code scaffolding
+## Features
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+- Admin login page
+- Dashboard with live statistics from MySQL
+- Complaint management
+  - Add complaints
+  - View complaints
+  - Mark complaints as resolved
+  - Delete complaints
+- Resident management
+  - Add residents
+  - View residents
+  - Edit residents
+  - Delete residents with confirmation
+  - Search residents
+- Responsive Angular UI
+- Node.js + Express backend
+- MVC backend architecture
+- MySQL database integration
+- Git and GitHub version control
 
-```bash
-ng generate component component-name
-```
+## Tech Stack
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+### Frontend
+- Angular
+- TypeScript
+- Angular Material
+- HTML
+- CSS
 
-```bash
-ng generate --help
-```
+### Backend
+- Node.js
+- Express.js
+- MVC Architecture
 
-## Building
+### Database
+- MySQL
 
-To build the project run:
+### Tools
+- Git
+- GitHub
+- VS Code
+- Thunder Client
 
-```bash
-ng build
-```
+## Live Demo
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+Frontend: Coming Soon
 
-## Running unit tests
+Backend API: Coming Soon
 
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+## Project Structure
 
-```bash
-ng test
-```
+```text
+society-management-system
+│
+├── backend
+│   ├── controllers
+│   ├── models
+│   ├── routes
+│   ├── db.js
+│   └── server.js
+│
+├── src
+│   ├── app
+│   │   ├── complaints
+│   │   ├── dashboard
+│   │   ├── residents
+│   │   ├── login
+│   │   ├── layout
+│   │   └── services
+│
+├── angular.json
+├── package.json
+└── README.md
 
-## Running end-to-end tests
+## Author
 
-For end-to-end (e2e) testing, run:
+**Sneha Mishra**
 
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+GitHub: https://github.com/Sneha1939
