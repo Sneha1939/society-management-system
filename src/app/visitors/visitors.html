@@ -1,0 +1,93 @@
+<app-navbar></app-navbar>
+
+<div class="visitors-page">
+
+  <div class="page-header">
+    <div>
+      <h1>Visitor Management</h1>
+      <p>Track visitor entries, check-ins and check-outs</p>
+    </div>
+
+    <button class="add-btn" (click)="openAddModal()">
+      + Add Visitor
+    </button>
+  </div>
+
+  <div class="toolbar">
+    <input
+      class="search-box"
+      type="text"
+      placeholder="Search by visitor name, flat or phone"
+      [(ngModel)]="searchText"
+    />
+  </div>
+
+  <table *ngIf="filteredVisitors.length > 0">
+    <thead>
+      <tr>
+        <th>S.No</th>
+        <th>Visitor Name</th>
+        <th>Phone</th>
+        <th>Flat</th>
+        <th>Purpose</th>
+        <th>Status</th>
+        <th>Entry Time</th>
+        <th>Exit Time</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let visitor of filteredVisitors; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>{{ visitor.visitor_name }}</td>
+        <td>{{ visitor.phone_number }}</td>
+        <td>{{ visitor.flat_number }}</td>
+        <td>{{ visitor.purpose }}</td>
+        <td>
+          <span class="status-badge">
+            {{ visitor.status }}
+          </span>
+        </td>
+        <td>{{ visitor.entry_time || '-' }}</td>
+        <td>{{ visitor.exit_time || '-' }}</td>
+        <td>
+          <button class="checkin-btn" (click)="updateStatus(i, 'Checked In')">
+            Check In
+          </button>
+
+          <button class="checkout-btn" (click)="updateStatus(i, 'Checked Out')">
+            Check Out
+          </button>
+
+          <button class="delete-btn" (click)="deleteVisitor(i)">
+            Delete
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p class="empty-state" *ngIf="filteredVisitors.length === 0">
+    No visitors found.
+  </p>
+
+</div>
+
+<div class="modal-backdrop" *ngIf="showAddModal">
+  <div class="modal">
+    <h2>Add Visitor</h2>
+
+    <form [formGroup]="visitorForm">
+      <input type="text" placeholder="Visitor Name" formControlName="visitorName" />
+      <input type="text" placeholder="Phone Number" formControlName="phoneNumber" />
+      <input type="text" placeholder="Flat Number" formControlName="flatNumber" />
+      <input type="text" placeholder="Purpose" formControlName="purpose" />
+    </form>
+
+    <div class="buttons">
+      <button (click)="addVisitor()">Save</button>
+      <button (click)="closeAddModal()">Cancel</button>
+    </div>
+  </div>
+</div>

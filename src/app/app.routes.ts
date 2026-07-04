@@ -3,7 +3,7 @@ import { Login } from './login/login';
 import {Dashboard } from './dashboard/dashboard';
 import {Complaints} from './complaints/complaints';
 import { Residents } from './residents/residents';
-
+import { Visitors } from './visitors/visitors';
 export const routes: Routes = [
   {
     path: '',
@@ -20,5 +20,9 @@ export const routes: Routes = [
   {
   path: 'residents',
   component: Residents
+},
+{
+  path: 'visitors',
+  component: Visitors
 }
 ];
