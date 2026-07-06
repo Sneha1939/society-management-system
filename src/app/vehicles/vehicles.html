@@ -1,0 +1,123 @@
+<app-navbar></app-navbar>
+
+<div class="vehicles-page">
+
+  <div class="page-header">
+    <div>
+      <h1>Vehicle Management</h1>
+      <p>Manage resident vehicles and parking slots</p>
+    </div>
+
+    <button class="add-btn" (click)="openAddModal()">
+      + Add Vehicle
+    </button>
+  </div>
+
+  <div class="toolbar">
+    <input
+      class="search-box"
+      type="text"
+      placeholder="Search by owner, flat, vehicle number or type"
+      [(ngModel)]="searchText"
+    />
+  </div>
+
+  <table *ngIf="filteredVehicles.length > 0">
+    <thead>
+      <tr>
+        <th>S.No</th>
+        <th>Owner</th>
+        <th>Flat</th>
+        <th>Type</th>
+        <th>Vehicle Number</th>
+        <th>Parking Slot</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let vehicle of filteredVehicles; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>{{ vehicle.owner_name }}</td>
+        <td>{{ vehicle.flat_number }}</td>
+        <td>
+          <span class="type-badge">
+            {{ vehicle.vehicle_type }}
+          </span>
+        </td>
+        <td>{{ vehicle.vehicle_number }}</td>
+        <td>{{ vehicle.parking_slot || '-' }}</td>
+        <td>
+          <button class="edit-btn" (click)="openEditModal(i)">
+            Edit
+          </button>
+
+          <button class="delete-btn" (click)="deleteVehicle(i)">
+            Delete
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p class="empty-state" *ngIf="filteredVehicles.length === 0">
+    No vehicles found.
+  </p>
+
+</div>
+
+<!-- Add Modal -->
+<div class="modal-backdrop" *ngIf="showAddModal">
+  <div class="modal">
+    <h2>Add Vehicle</h2>
+
+    <form [formGroup]="vehicleForm">
+      <input type="text" placeholder="Owner Name" formControlName="ownerName" />
+      <input type="text" placeholder="Flat Number" formControlName="flatNumber" />
+
+      <select formControlName="vehicleType">
+        <option value="">Select Vehicle Type</option>
+        <option value="Car">Car</option>
+        <option value="Bike">Bike</option>
+        <option value="Scooter">Scooter</option>
+        <option value="Other">Other</option>
+      </select>
+
+      <input type="text" placeholder="Vehicle Number" formControlName="vehicleNumber" />
+      <input type="text" placeholder="Parking Slot" formControlName="parkingSlot" />
+    </form>
+
+    <div class="buttons">
+      <button (click)="addVehicle()">Save</button>
+      <button (click)="closeAddModal()">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<!-- Edit Modal -->
+<div class="modal-backdrop" *ngIf="showEditModal">
+  <div class="modal">
+    <h2>Edit Vehicle</h2>
+
+    <form [formGroup]="vehicleForm">
+      <input type="text" placeholder="Owner Name" formControlName="ownerName" />
+      <input type="text" placeholder="Flat Number" formControlName="flatNumber" />
+
+      <select formControlName="vehicleType">
+        <option value="">Select Vehicle Type</option>
+        <option value="Car">Car</option>
+        <option value="Bike">Bike</option>
+        <option value="Scooter">Scooter</option>
+        <option value="Other">Other</option>
+      </select>
+
+      <input type="text" placeholder="Vehicle Number" formControlName="vehicleNumber" />
+      <input type="text" placeholder="Parking Slot" formControlName="parkingSlot" />
+    </form>
+
+    <div class="buttons">
+      <button (click)="updateVehicle()">Update</button>
+      <button (click)="closeEditModal()">Cancel</button>
+    </div>
+  </div>
+</div>

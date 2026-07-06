@@ -4,6 +4,7 @@ import {Dashboard } from './dashboard/dashboard';
 import {Complaints} from './complaints/complaints';
 import { Residents } from './residents/residents';
 import { Visitors } from './visitors/visitors';
+import { Vehicles } from './vehicles/vehicles';
 export const routes: Routes = [
   {
     path: '',
@@ -24,5 +25,9 @@ export const routes: Routes = [
 {
   path: 'visitors',
   component: Visitors
+},
+{
+  path: 'vehicles',
+  component: Vehicles
 }
 ];
