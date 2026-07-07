@@ -3,10 +3,9 @@
   <div class="login-card">
 
     <div class="logo-section">
-      <mat-icon class="logo-icon">apartment</mat-icon>
+      <mat-icon class="logo-icon">admin_panel_settings</mat-icon>
       <h1>Admin Login</h1>
-<p>Aggregator Admin Portal</p>
-    <p class="subtitle">Login to access your dashboard</p>
+    <p class="subtitle">Login to access the admin dashboard</p>
 
     <form [formGroup]="loginForm">
 
@@ -38,6 +37,7 @@
         <p class="error" *ngIf="loginForm.get('password')?.hasError('required') && loginForm.get('password')?.touched">
           Password is required
         </p>
+        <p class="forgot-password">Forgot Password?</p>
       </div>
 
     </form>
@@ -50,7 +50,7 @@
       <button class="login-btn" (click)="login()">Login</button>
       <button class="reset-btn" (click)="reset()">Reset</button>
     </div>
-<p class="forgot-password">Forgot Password?</p>
+
   </div>
 
 </div>

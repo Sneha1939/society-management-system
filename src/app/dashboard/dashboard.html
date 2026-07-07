@@ -1,87 +1,143 @@
 <app-navbar></app-navbar>
+
 <div class="dashboard-container">
 
+  <!-- Welcome Banner -->
   <div class="welcome-banner">
+
     <div>
-        <h1>Good Evening, Admin 👋</h1>
-        <p>Welcome back to Smart Society Management System</p>
+      <h1>Welcome Admin 👋</h1>
+      <p>Super Admin Dashboard</p>
     </div>
 
     <div class="date-box">
-        {{ today | date:'EEEE, dd MMM yyyy' }}
+      {{ today | date:'EEEE, dd MMM yyyy' }}
     </div>
-</div>
+
+  </div>
+
+  <!-- Statistics Cards -->
+
   <div class="stats-grid">
 
-    <mat-card class="stat-card residents">
-
-  <div class="card-top">
-    <mat-icon>groups</mat-icon>
-  </div>
-
-  <div class="card-content">
-    <h3>Total Residents</h3>
-    <h1>{{ stats.totalResidents }}</h1>
-  </div>
-
-</mat-card>
+    <!-- Total Workers -->
 
     <mat-card class="stat-card residents">
 
-  <div class="card-top">
-    <mat-icon>report_problem</mat-icon>
-  </div>
+      <div class="card-top">
+        <mat-icon>engineering</mat-icon>
+      </div>
 
-  <div class="card-content">
-    <h3>Open Complaints</h3>
-    <h1>{{ stats.totalComplaints }}</h1>
-  </div>
+      <div class="card-content">
+        <h3>Total Workers</h3>
+        <h1>{{ stats.totalResidents }}</h1>
+      </div>
 
-</mat-card>
-
-   <mat-card class="stat-card residents">
-
-  <div class="card-top">
-    <mat-icon>hourglass_top</mat-icon>
-  </div>
-
-  <div class="card-content">
-    <h3>Waiting Complaints</h3>
-    <h1>{{ stats.waitingComplaints }}</h1>
-  </div>
-
-</mat-card>
-    <mat-card class="stat-card residents">
-
-  <div class="card-top">
-    <mat-icon>task_alt</mat-icon>
-  </div>
-
-  <div class="card-content">
-    <h3>Resolved Complaints</h3>
-    <h1>{{ stats.resolvedComplaints }}</h1>
-  </div>
-
-</mat-card>
-
-  </div>
-
-  <div class="action-section">
-
-    <mat-card class="action-card">
-      <h2>Complaint Management</h2>
-      <p>View, resolve and manage resident complaints.</p>
-      <button mat-raised-button color="primary" routerLink="/complaints">
-        Manage Complaints
-      </button>
     </mat-card>
 
+    <!-- Unverified Workers -->
+
+    <mat-card class="stat-card complaints">
+
+      <div class="card-top">
+        <mat-icon>person_off</mat-icon>
+      </div>
+
+      <div class="card-content">
+        <h3>Unverified Workers</h3>
+        <h1>{{ stats.totalComplaints }}</h1>
+      </div>
+
+    </mat-card>
+
+    <!-- Pending Workers -->
+
+    <mat-card class="stat-card waiting">
+
+      <div class="card-top">
+        <mat-icon>hourglass_top</mat-icon>
+      </div>
+
+      <div class="card-content">
+        <h3>Pending Workers</h3>
+        <h1>{{ stats.waitingComplaints }}</h1>
+      </div>
+
+    </mat-card>
+
+    <!-- Verified Workers -->
+
+    <mat-card class="stat-card resolved">
+
+      <div class="card-top">
+        <mat-icon>verified_user</mat-icon>
+      </div>
+
+      <div class="card-content">
+        <h3>Verified Workers</h3>
+        <h1>{{ stats.resolvedComplaints }}</h1>
+      </div>
+
+    </mat-card>
+
+  </div>
+
+  <!-- Quick Actions -->
+
+  <div class="actions-grid">
+
+    <!-- Aggregator -->
+
     <mat-card class="action-card">
-      <h2>Resident Management</h2>
-      <p>Add, update, search and manage society residents.</p>
-      <button mat-raised-button color="primary" routerLink="/residents">
-        Manage Residents
+
+      <mat-card-title>
+        Aggregator Management
+      </mat-card-title>
+
+      <mat-card-content>
+
+        <p>
+          Create and manage aggregators across different states.
+        </p>
+
+      </mat-card-content>
+
+      <button
+        mat-raised-button
+        color="primary"
+        routerLink="/residents">
+
+        Manage Aggregators
+
       </button>
+
+    </mat-card>
+
+    <!-- SPOC -->
+
+    <mat-card class="action-card">
+
+      <mat-card-title>
+        SPOC Management
+      </mat-card-title>
+
+      <mat-card-content>
+
+        <p>
+          Assign and manage SPOCs for different aggregators.
+        </p>
+
+      </mat-card-content>
+
+      <button
+        mat-raised-button
+        color="accent"
+        routerLink="/visitors">
+
+        Manage SPOC
+
+      </button>
+
     </mat-card>
 
   </div>
