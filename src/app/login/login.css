@@ -128,3 +128,11 @@ button {
     color: #1976d2;
     margin-bottom: 12px;
 }
+.forgot-password {
+  text-align: right;
+  color: #1976d2;
+  font-size: 14px;
+  cursor: pointer;
+  margin-top: -8px;
+  margin-bottom: 16px;
+}
