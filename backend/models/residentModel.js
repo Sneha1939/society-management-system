@@ -7,40 +7,55 @@ const ResidentModel = {
     },
 
     addResident: (resident, callback) => {
-        const sql = `
-            INSERT INTO residents
-            (full_name, flat_number, phone_number, email, emergency_contact, family_members)
-            VALUES (?, ?, ?, ?, ?, ?)
-        `;
 
-        db.query(sql, [
-            resident.fullName,
-            resident.flatNumber,
-            resident.phoneNumber,
-            resident.email,
-            resident.emergencyContact,
-            resident.familyMembers
-        ], callback);
-    },
+    const sql = `
+        INSERT INTO residents
+        (
+            full_name,
+            phone_number,
+            email,
+            state,
+            aggregator,
+            flat_number,
+            emergency_contact,
+            family_members
+        )
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+    `;
 
+    db.query(sql, [
+        resident.fullName,
+        resident.phoneNumber,
+        resident.email,
+        resident.state,
+        resident.aggregator,
+        '',
+        '',
+        0
+    ], callback);
+},
     updateResident: (id, resident, callback) => {
-        const sql = `
-            UPDATE residents
-            SET full_name = ?, flat_number = ?, phone_number = ?, email = ?,
-                emergency_contact = ?, family_members = ?
-            WHERE id = ?
-        `;
 
-        db.query(sql, [
-            resident.fullName,
-            resident.flatNumber,
-            resident.phoneNumber,
-            resident.email,
-            resident.emergencyContact,
-            resident.familyMembers,
-            id
-        ], callback);
-    },
+    const sql = `
+        UPDATE residents
+        SET
+            full_name = ?,
+            phone_number = ?,
+            email = ?,
+            state = ?,
+            aggregator = ?
+        WHERE id = ?
+    `;
+
+    db.query(sql, [
+        resident.fullName,
+        resident.phoneNumber,
+        resident.email,
+        resident.state,
+        resident.aggregator,
+        id
+    ], callback);
+},
 
     deleteResident: (id, callback) => {
         const sql = 'DELETE FROM residents WHERE id = ?';

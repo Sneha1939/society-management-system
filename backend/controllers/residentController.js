@@ -30,14 +30,13 @@ const ResidentController = {
             }
 
             res.status(201).json({
-                id: result.insertId,
-                full_name: resident.fullName,
-                flat_number: resident.flatNumber,
-                phone_number: resident.phoneNumber,
-                email: resident.email,
-                emergency_contact: resident.emergencyContact,
-                family_members: resident.familyMembers
-            });
+    id: result.insertId,
+    full_name: resident.fullName,
+    phone_number: resident.phoneNumber,
+    email: resident.email,
+    state: resident.state,
+    aggregator: resident.aggregator
+});
         });
     },
 

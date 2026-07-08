@@ -5,7 +5,7 @@ const VisitorController = {
     VisitorModel.getAllVisitors((err, results) => {
       if (err) {
         console.log(err);
-        return res.status(500).json({ message: 'Error fetching visitors' });
+        return res.status(500).json({ message: 'Error fetching SPOC records' });
       }
 
       res.json(results);
@@ -13,21 +13,21 @@ const VisitorController = {
   },
 
   addVisitor: (req, res) => {
-    const visitor = req.body;
+    const spoc = req.body;
 
-    VisitorModel.addVisitor(visitor, (err, result) => {
+    VisitorModel.addVisitor(spoc, (err, result) => {
       if (err) {
         console.log(err);
-        return res.status(500).json({ message: 'Error adding visitor' });
+        return res.status(500).json({ message: 'Error assigning SPOC' });
       }
 
       res.status(201).json({
         id: result.insertId,
-        visitor_name: visitor.visitorName,
-        phone_number: visitor.phoneNumber,
-        flat_number: visitor.flatNumber,
-        purpose: visitor.purpose,
-        status: 'Expected'
+        spoc_designation: spoc.spocDesignation,
+        visitor_name: spoc.spocName,
+        spoc_dob: spoc.spocDob,
+        platform: spoc.platform,
+        status: 'Inactive'
       });
     });
   },
@@ -39,10 +39,10 @@ const VisitorController = {
     VisitorModel.updateStatus(id, status, (err) => {
       if (err) {
         console.log(err);
-        return res.status(500).json({ message: 'Error updating visitor status' });
+        return res.status(500).json({ message: 'Error updating SPOC status' });
       }
 
-      res.json({ message: 'Visitor status updated successfully' });
+      res.json({ message: 'SPOC status updated successfully' });
     });
   },
 
@@ -52,10 +52,10 @@ const VisitorController = {
     VisitorModel.deleteVisitor(id, (err) => {
       if (err) {
         console.log(err);
-        return res.status(500).json({ message: 'Error deleting visitor' });
+        return res.status(500).json({ message: 'Error deleting SPOC' });
       }
 
-      res.json({ message: 'Visitor deleted successfully' });
+      res.json({ message: 'SPOC deleted successfully' });
     });
   }
 };

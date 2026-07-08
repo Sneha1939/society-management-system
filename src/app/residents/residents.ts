@@ -17,17 +17,24 @@ export class Residents implements OnInit {
 showEditModal = false;
 selectedResidentId = 0;
 searchText = '';
+aggregatorList: any[] = [];
   residentForm = new FormGroup({
-    fullName: new FormControl('', Validators.required),
-    flatNumber: new FormControl('', Validators.required),
-    phoneNumber: new FormControl('', [
-      Validators.required,
-      Validators.pattern(/^[6-9][0-9]{9}$/)
-    ]),
-    email: new FormControl('', Validators.email),
-    emergencyContact: new FormControl(''),
-    familyMembers: new FormControl('', Validators.required)
-  });
+  fullName: new FormControl('', Validators.required),
+
+  phoneNumber: new FormControl('', [
+    Validators.required,
+    Validators.pattern(/^[6-9][0-9]{9}$/)
+  ]),
+
+  email: new FormControl('', [
+    Validators.required,
+    Validators.email
+  ]),
+
+  state: new FormControl('', Validators.required),
+
+  aggregator: new FormControl('', Validators.required)
+});
 
   constructor(
     private residentService: ResidentService,
@@ -35,9 +42,9 @@ searchText = '';
   ) {}
 
   ngOnInit(): void {
-    this.loadResidents();
-  }
-
+  this.loadResidents();
+  this.loadAggregatorList();
+}
   loadResidents(): void {
     this.residentService.getResidents().subscribe({
       next: (data) => {
@@ -49,23 +56,31 @@ searchText = '';
       }
     });
   }
-
+loadAggregatorList(): void {
+  fetch('/assets/aggregators.json')
+    .then(response => response.json())
+    .then(json => {
+      this.aggregatorList = json.data;
+      this.cdr.detectChanges();
+    })
+    .catch(error => {
+      console.log(error);
+    });
+}
   openAddModal(): void {
     this.showAddModal = true;
   }
 openEditModal(index: number): void {
-
   const resident = this.residents[index];
 
   this.selectedResidentId = resident.id;
 
   this.residentForm.patchValue({
     fullName: resident.full_name,
-    flatNumber: resident.flat_number,
     phoneNumber: resident.phone_number,
     email: resident.email,
-    emergencyContact: resident.emergency_contact,
-    familyMembers: resident.family_members
+    state: resident.state,
+    aggregator: resident.aggregator
   });
 
   this.showEditModal = true;
@@ -81,6 +96,10 @@ closeEditModal(): void {
 
 }
   addResident(): void {
+    console.log('Add button clicked');
+console.log('Form valid:', this.residentForm.valid);
+console.log('Form value:', this.residentForm.value);
+console.log('Form errors:', this.residentForm);
     console.log("Save button clicked");
     if (this.residentForm.invalid) {
       this.residentForm.markAllAsTouched();
@@ -88,25 +107,27 @@ closeEditModal(): void {
     }
 
     const newResident = {
-      fullName: this.residentForm.value.fullName,
-      flatNumber: this.residentForm.value.flatNumber,
-      phoneNumber: this.residentForm.value.phoneNumber,
-      email: this.residentForm.value.email,
-      emergencyContact: this.residentForm.value.emergencyContact,
-      familyMembers: this.residentForm.value.familyMembers
-    };
+  fullName: this.residentForm.value.fullName,
+  phoneNumber: this.residentForm.value.phoneNumber,
+  email: this.residentForm.value.email,
+  state: this.residentForm.value.state,
+  aggregator: this.residentForm.value.aggregator
+};
 
     this.residentService.addResident(newResident).subscribe({
-      next: () => {
-        this.closeAddModal();
-        this.loadResidents();
-      },
-      error: (err) => {
-        console.log(err);
-      }
-    });
+  next: () => {
+    this.closeAddModal();
+    this.loadResidents();
+  },
+  error: (err) => {
+    console.log(err);
+  }
+});
   }
 updateResident(): void {
+  console.log('Update button clicked');
+console.log('Form valid:', this.residentForm.valid);
+console.log('Form value:', this.residentForm.value);
 
   if (this.residentForm.invalid) {
     this.residentForm.markAllAsTouched();
@@ -114,13 +135,12 @@ updateResident(): void {
   }
 
   const updatedResident = {
-    fullName: this.residentForm.value.fullName,
-    flatNumber: this.residentForm.value.flatNumber,
-    phoneNumber: this.residentForm.value.phoneNumber,
-    email: this.residentForm.value.email,
-    emergencyContact: this.residentForm.value.emergencyContact,
-    familyMembers: this.residentForm.value.familyMembers
-  };
+  fullName: this.residentForm.value.fullName,
+  phoneNumber: this.residentForm.value.phoneNumber,
+  email: this.residentForm.value.email,
+  state: this.residentForm.value.state,
+  aggregator: this.residentForm.value.aggregator
+};
 
   this.residentService
     .updateResident(this.selectedResidentId, updatedResident)

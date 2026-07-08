@@ -1,0 +1,121 @@
+{
+    "data": [
+        {
+            "id": "1",
+            "Code": "10001",
+            "name": "JAYANT PREMISES CO OP SOC LTD",
+            "aggregatorId": "1",
+            "check": "FALSE"
+        },
+        {
+            "id": "2",
+            "Code": "10002",
+            "name": "THE INSTITUTE OF CHARTERED ACCOUNTANTS OF INDIA",
+            "aggregatorId": "1",
+            "check": "FALSE"
+        },
+        {
+            "id": "3",
+            "Code": "10003",
+            "name": "APEX LABORATORIES PRIVATE LIMITED",
+            "aggregatorId": "1",
+            "check": "FALSE"
+        },
+        {
+            "id": "4",
+            "Code": "10004",
+            "name": "ATIGNAS TRADERS PVT LTD",
+            "aggregatorId": "1",
+            "check": "FALSE"
+        },
+        {
+            "id": "5",
+            "Code": "10005",
+            "name": "JUST DIAL LIMITED",
+            "aggregatorId": "1",
+            "check": "FALSE"
+        },
+        {
+            "id": "6",
+            "Code": "10006",
+            "name": "CITIZEN MOTELS INTERNATIONAL LIMITED",
+            "aggregatorId": "1",
+            "check": "FALSE"
+        },
+        {
+            "id": "7",
+            "Code": "10007",
+            "name": "CONTROL PRINT LIMITED",
+            "aggregatorId": "1",
+            "check": "FALSE"
+        },
+        {
+            "id": "8",
+            "Code": "10008",
+            "name": "NOCLE SYSTEMS AND CONTROLS PRIVATE LIMITED",
+            "aggregatorId": "1",
+            "check": "FALSE"
+        },
+        {
+            "id": "9",
+            "Code": "10009",
+            "name": "GREENISH (INDIA) TRADES PRIVATE LIMITED",
+            "aggregatorId": "1",
+            "check": "FALSE"
+        },
+        {
+            "id": "10",
+            "Code": "10010",
+            "name": "GOA ELECTRONICS LIMITED",
+            "aggregatorId": "1",
+            "check": "FALSE"
+        },
+        {
+            "id": "11",
+            "Code": "10011",
+            "name": "H N ENTERPRISES PVT LTD",
+            "aggregatorId": "1",
+            "check": "FALSE"
+        },
+        {
+            "id": "12",
+            "Code": "10012",
+            "name": "IDEAL ICE LIMITED",
+            "aggregatorId": "1",
+            "check": "FALSE"
+        },
+        {
+            "id": "13",
+            "Code": "10013",
+            "name": "INDIAN PRODUCTS PRIVATE LIMITED",
+            "aggregatorId": "1",
+            "check": "FALSE"
+        },
+        {
+            "id": "14",
+            "Code": "10014",
+            "name": "INDIAN RAILWAY CATERING AND TOURISM CORPORATION LIMITED",
+            "aggregatorId": "1",
+            "check": "FALSE"
+        },
+        {
+            "id": "15",
+            "Code": "10015",
+            "name": "KHANNA HOTELS PRIVATE LIMITED",
+            "aggregatorId": "1",
+            "check": "FALSE"
+        },
+        {
+            "id": "16",
+            "Code": "10016",
+            "name": "KRUTTIKA TEXPORT PRIVATE LIMITED",
+            "aggregatorId": "1",
+            "check": "FALSE"
+        },
+        {
+            "id": "17",
+            "Code": "10017",
+            "name": "HOTEL RAJPARK PRIVATE LIMITED",
+            "aggregatorId": "1",
+            "check": "FALSE"
+        }]}

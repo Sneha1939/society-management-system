@@ -3,12 +3,15 @@
 
   <div class="page-header">
   <div>
-    <h1>Resident Management</h1>
-    <p>Manage society residents, flats and contact details</p>
+    <h1>Aggregator Management</h1>
+
+<p>
+Create and manage aggregators across different states.
+</p>
   </div>
 
   <button class="add-btn" (click)="openAddModal()">
-    + Add Resident
+    + Add Aggregator
   </button>
 </div>
 
@@ -25,35 +28,27 @@
     <thead>
       <tr>
         <th>S.No</th>
-        <th>Name</th>
-        <th>Flat</th>
-        <th>Phone</th>
-        <th>Email</th>
-        <th>Family Members</th>
-        <th>Action</th>
+<th>Aggregator Name</th>
+<th>Contact</th>
+<th>Email</th>
+<th>State</th>
+<th>Aggregator</th>
+<th>Action</th>
       </tr>
     </thead>
 
     <tbody>
       <tr *ngFor="let resident of residents; let i=index">
-        <td>{{ i+1 }}</td>
-        <td>{{ resident.full_name }}</td>
-        <td>{{ resident.flat_number }}</td>
-        <td>{{ resident.phone_number }}</td>
-        <td>{{ resident.email }}</td>
-        <td>{{ resident.family_members }}</td>
-
-        <td>
-          <button class="edit-btn"
-        (click)="openEditModal(i)">
-  Edit
-</button>
-
-<button class="delete-btn"
-        (click)="deleteResident(i)">
-  Delete
-</button>
-        </td>
+        <td>{{ i + 1 }}</td>
+<td>{{ resident.full_name }}</td>
+<td>{{ resident.phone_number }}</td>
+<td>{{ resident.email }}</td>
+<td>{{ resident.state }}</td>
+<td>{{ resident.aggregator }}</td>
+<td>
+  <button class="edit-btn" (click)="openEditModal(i)">Edit</button>
+  <button class="delete-btn" (click)="deleteResident(i)">Delete</button>
+</td>
       </tr>
     </tbody>
   </table>
@@ -70,41 +65,54 @@
 
     <div class="modal">
 
-        <h2>Add Resident</h2>
+        <h2>Add Aggregator</h2>
 
         <form [formGroup]="residentForm">
 
-            <input
-                type="text"
-                placeholder="Full Name"
-                formControlName="fullName">
+    <input
+        type="text"
+        placeholder="Aggregator Name"
+        formControlName="fullName">
 
-            <input
-                type="text"
-                placeholder="Flat Number"
-                formControlName="flatNumber">
+    <input
+        type="text"
+        placeholder="Contact Number"
+        formControlName="phoneNumber">
 
-            <input
-                type="text"
-                placeholder="Phone Number"
-                formControlName="phoneNumber">
+    <input
+        type="email"
+        placeholder="Email Address"
+        formControlName="email">
 
-            <input
-                type="email"
-                placeholder="Email"
-                formControlName="email">
+    <select formControlName="state">
 
-            <input
-                type="text"
-                placeholder="Emergency Contact"
-                formControlName="emergencyContact">
+        <option value="">
+            Select State
+        </option>
 
-            <input
-                type="number"
-                placeholder="Family Members"
-                formControlName="familyMembers">
+        <option value="Andhra Pradesh">Andhra Pradesh</option>
+        <option value="Delhi">Delhi</option>
+        <option value="Gujarat">Gujarat</option>
+        <option value="Haryana">Haryana</option>
+        <option value="Karnataka">Karnataka</option>
+        <option value="Maharashtra">Maharashtra</option>
+        <option value="Tamil Nadu">Tamil Nadu</option>
+        <option value="Telangana">Telangana</option>
+        <option value="Uttar Pradesh">Uttar Pradesh</option>
 
-        </form>
+    </select>
+
+    <select formControlName="aggregator">
+  <option value="">Select Aggregator</option>
+
+  <option
+    *ngFor="let item of aggregatorList"
+    [value]="item.name">
+    {{ item.Code }} - {{ item.name }}
+  </option>
+</select>
+
+</form>
 
         <div class="buttons">
 
@@ -123,55 +131,54 @@
 </div>
 
 <div class="modal-backdrop" *ngIf="showEditModal">
-    <div class="modal">
+  <div class="modal">
+    <h2>Edit Aggregator</h2>
 
-        <h2>Edit Resident</h2>
-        <form [formGroup]="residentForm">
+    <form [formGroup]="residentForm">
 
-            <input
-                type="text"
-                placeholder="Full Name"
-                formControlName="fullName">
+      <input
+        type="text"
+        placeholder="Aggregator Name"
+        formControlName="fullName">
 
-            <input
-                type="text"
-                placeholder="Flat Number"
-                formControlName="flatNumber">
+      <input
+        type="text"
+        placeholder="Contact Number"
+        formControlName="phoneNumber">
 
-            <input
-                type="text"
-                placeholder="Phone Number"
-                formControlName="phoneNumber">
+      <input
+        type="email"
+        placeholder="Email Address"
+        formControlName="email">
 
-            <input
-                type="email"
-                placeholder="Email"
-                formControlName="email">
+      <select formControlName="state">
+        <option value="">Select State</option>
+        <option value="Andhra Pradesh">Andhra Pradesh</option>
+        <option value="Delhi">Delhi</option>
+        <option value="Gujarat">Gujarat</option>
+        <option value="Haryana">Haryana</option>
+        <option value="Karnataka">Karnataka</option>
+        <option value="Maharashtra">Maharashtra</option>
+        <option value="Tamil Nadu">Tamil Nadu</option>
+        <option value="Telangana">Telangana</option>
+        <option value="Uttar Pradesh">Uttar Pradesh</option>
+      </select>
 
-            <input
-                type="text"
-                placeholder="Emergency Contact"
-                formControlName="emergencyContact">
+      <select formControlName="aggregator">
+  <option value="">Select Aggregator</option>
 
-            <input
-                type="number"
-                placeholder="Family Members"
-                formControlName="familyMembers">
+  <option
+    *ngFor="let item of aggregatorList"
+    [value]="item.name">
+    {{ item.Code }} - {{ item.name }}
+  </option>
+</select>
 
-        </form>
+    </form>
 
-        <div class="buttons">
-
-            <button (click)="updateResident()">
-    Update
-</button>
-
-            <button (click)="closeEditModal()">
-                Cancel
-            </button>
-
-        </div>
-
+    <div class="buttons">
+      <button (click)="updateResident()">Update</button>
+      <button (click)="closeEditModal()">Cancel</button>
     </div>
-
+  </div>
 </div>

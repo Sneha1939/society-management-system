@@ -4,12 +4,12 @@
 
   <div class="page-header">
     <div>
-      <h1>Visitor Management</h1>
-      <p>Track visitor entries, check-ins and check-outs</p>
+      <h1>SPOC Management</h1>
+      <p>Assign and manage SPOCs across platforms</p>
     </div>
 
     <button class="add-btn" (click)="openAddModal()">
-      + Add Visitor
+      + Assign SPOC
     </button>
   </div>
 
@@ -17,7 +17,7 @@
     <input
       class="search-box"
       type="text"
-      placeholder="Search by visitor name, flat or phone"
+      placeholder="Search by SPOC name, designation or platform"
       [(ngModel)]="searchText"
     />
   </div>
@@ -26,13 +26,11 @@
     <thead>
       <tr>
         <th>S.No</th>
-        <th>Visitor Name</th>
-        <th>Phone</th>
-        <th>Flat</th>
-        <th>Purpose</th>
+        <th>SPOC Designation</th>
+        <th>SPOC Name</th>
+        <th>DOB</th>
+        <th>Platform</th>
         <th>Status</th>
-        <th>Entry Time</th>
-        <th>Exit Time</th>
         <th>Action</th>
       </tr>
     </thead>
@@ -40,24 +38,25 @@
     <tbody>
       <tr *ngFor="let visitor of filteredVisitors; let i = index">
         <td>{{ i + 1 }}</td>
+        <td>{{ visitor.spoc_designation }}</td>
         <td>{{ visitor.visitor_name }}</td>
-        <td>{{ visitor.phone_number }}</td>
-        <td>{{ visitor.flat_number }}</td>
-        <td>{{ visitor.purpose }}</td>
+        <td>{{ visitor.spoc_dob }}</td>
+        <td>{{ visitor.platform }}</td>
+
         <td>
           <span class="status-badge">
             {{ visitor.status }}
           </span>
         </td>
-        <td>{{ visitor.entry_time || '-' }}</td>
-        <td>{{ visitor.exit_time || '-' }}</td>
-        <td>
-          <button class="checkin-btn" (click)="updateStatus(i, 'Checked In')">
-            Check In
-          </button>
 
-          <button class="checkout-btn" (click)="updateStatus(i, 'Checked Out')">
-            Check Out
+        <td>
+          <button
+            class="checkin-btn"
+            (click)="updateStatus(i)"
+            *ngIf="visitor.status !== 'Verified'">
+
+            {{ visitor.status === 'Inactive' ? 'Activate' : 'Verify' }}
+
           </button>
 
           <button class="delete-btn" (click)="deleteVisitor(i)">
@@ -69,20 +68,43 @@
   </table>
 
   <p class="empty-state" *ngIf="filteredVisitors.length === 0">
-    No visitors found.
+    No SPOC records found.
   </p>
 
 </div>
 
 <div class="modal-backdrop" *ngIf="showAddModal">
   <div class="modal">
-    <h2>Add Visitor</h2>
+    <h2>Assign SPOC</h2>
 
     <form [formGroup]="visitorForm">
-      <input type="text" placeholder="Visitor Name" formControlName="visitorName" />
-      <input type="text" placeholder="Phone Number" formControlName="phoneNumber" />
-      <input type="text" placeholder="Flat Number" formControlName="flatNumber" />
-      <input type="text" placeholder="Purpose" formControlName="purpose" />
+
+      <input
+        type="text"
+        placeholder="SPOC Designation"
+        formControlName="spocDesignation"
+      />
+
+      <input
+        type="text"
+        placeholder="SPOC Name"
+        formControlName="spocName"
+      />
+
+      <input
+        type="date"
+        formControlName="spocDob"
+      />
+
+      <select formControlName="platform">
+        <option value="">Select Platform</option>
+        <option value="Swiggy">Swiggy</option>
+        <option value="Zomato">Zomato</option>
+        <option value="Blinkit">Blinkit</option>
+        <option value="Zepto">Zepto</option>
+        <option value="Other">Other</option>
+      </select>
+
     </form>
 
     <div class="buttons">

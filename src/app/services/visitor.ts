@@ -15,8 +15,8 @@ export class VisitorService {
     return this.http.get<any[]>(this.apiUrl);
   }
 
-  addVisitor(visitor: any): Observable<any> {
-    return this.http.post<any>(this.apiUrl, visitor);
+  addVisitor(spoc: any): Observable<any> {
+    return this.http.post<any>(this.apiUrl, spoc);
   }
 
   updateVisitorStatus(id: number, status: string): Observable<any> {

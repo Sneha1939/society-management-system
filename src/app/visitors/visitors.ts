@@ -18,13 +18,10 @@ export class Visitors implements OnInit {
   showAddModal = false;
 
   visitorForm = new FormGroup({
-    visitorName: new FormControl('', Validators.required),
-    phoneNumber: new FormControl('', [
-      Validators.required,
-      Validators.pattern(/^[6-9][0-9]{9}$/)
-    ]),
-    flatNumber: new FormControl('', Validators.required),
-    purpose: new FormControl('')
+    spocDesignation: new FormControl('', Validators.required),
+    spocName: new FormControl('', Validators.required),
+    spocDob: new FormControl('', Validators.required),
+    platform: new FormControl('', Validators.required)
   });
 
   constructor(
@@ -42,7 +39,7 @@ export class Visitors implements OnInit {
         this.visitors = data;
         this.cdr.detectChanges();
       },
-      error: (err) => {
+      error: (err: any) => {
         console.log(err);
       }
     });
@@ -57,8 +54,8 @@ export class Visitors implements OnInit {
 
     return this.visitors.filter(visitor =>
       visitor.visitor_name?.toLowerCase().includes(search) ||
-      visitor.flat_number?.toLowerCase().includes(search) ||
-      visitor.phone_number?.includes(search)
+      visitor.spoc_designation?.toLowerCase().includes(search) ||
+      visitor.platform?.toLowerCase().includes(search)
     );
   }
 
@@ -77,34 +74,46 @@ export class Visitors implements OnInit {
       return;
     }
 
-    this.visitorService.addVisitor(this.visitorForm.value).subscribe({
+    const newSpoc = {
+      spocDesignation: this.visitorForm.value.spocDesignation,
+      spocName: this.visitorForm.value.spocName,
+      spocDob: this.visitorForm.value.spocDob,
+      platform: this.visitorForm.value.platform
+    };
+
+    this.visitorService.addVisitor(newSpoc).subscribe({
       next: () => {
         this.closeAddModal();
         this.loadVisitors();
       },
-      error: (err) => {
+      error: (err: any) => {
         console.log(err);
       }
     });
   }
 
-  updateStatus(index: number, status: string): void {
-    const visitor = this.visitors[index];
+  updateStatus(index: number): void {
+    const visitor = this.filteredVisitors[index];
 
-    this.visitorService.updateVisitorStatus(visitor.id, status).subscribe({
+    const newStatus =
+      visitor.status === 'Inactive'
+        ? 'Active'
+        : 'Verified';
+
+    this.visitorService.updateVisitorStatus(visitor.id, newStatus).subscribe({
       next: () => {
         this.loadVisitors();
       },
-      error: (err) => {
+      error: (err: any) => {
         console.log(err);
       }
     });
   }
 
   deleteVisitor(index: number): void {
-    const visitor = this.visitors[index];
+    const visitor = this.filteredVisitors[index];
 
-    const confirmed = confirm(`Delete visitor ${visitor.visitor_name}?`);
+    const confirmed = confirm(`Delete SPOC ${visitor.visitor_name}?`);
 
     if (!confirmed) {
       return;
@@ -114,7 +123,7 @@ export class Visitors implements OnInit {
       next: () => {
         this.loadVisitors();
       },
-      error: (err) => {
+      error: (err: any) => {
         console.log(err);
       }
     });

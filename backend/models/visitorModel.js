@@ -9,30 +9,24 @@ const VisitorModel = {
   addVisitor: (visitor, callback) => {
     const sql = `
       INSERT INTO visitors
-      (visitor_name, phone_number, flat_number, purpose, status)
-      VALUES (?, ?, ?, ?, ?)
+      (spoc_designation, visitor_name, spoc_dob, platform, status, phone_number, flat_number, purpose)
+      VALUES (?, ?, ?, ?, ?, ?, ?, ?)
     `;
 
     db.query(sql, [
-      visitor.visitorName,
-      visitor.phoneNumber,
-      visitor.flatNumber,
-      visitor.purpose,
-      'Expected'
+      visitor.spocDesignation,
+      visitor.spocName,
+      visitor.spocDob,
+      visitor.platform,
+      'Inactive',
+      '',
+      '',
+      ''
     ], callback);
   },
 
   updateStatus: (id, status, callback) => {
-    let sql;
-
-    if (status === 'Checked In') {
-      sql = 'UPDATE visitors SET status = ?, entry_time = NOW() WHERE id = ?';
-    } else if (status === 'Checked Out') {
-      sql = 'UPDATE visitors SET status = ?, exit_time = NOW() WHERE id = ?';
-    } else {
-      sql = 'UPDATE visitors SET status = ? WHERE id = ?';
-    }
-
+    const sql = 'UPDATE visitors SET status = ? WHERE id = ?';
     db.query(sql, [status, id], callback);
   },
 
