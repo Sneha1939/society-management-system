@@ -1,0 +1,111 @@
+<app-navbar></app-navbar>
+
+<div class="admins-page">
+
+  <div class="page-header">
+    <div>
+      <h1>Dedicated Admin Management</h1>
+      <p>Create and manage dedicated admins for worker verification</p>
+    </div>
+
+    <button class="add-btn" (click)="openAddModal()">
+      + Create Admin
+    </button>
+  </div>
+
+  <div class="toolbar">
+    <input
+      class="search-box"
+      type="text"
+      placeholder="Search by name, email, username or aggregator"
+      [(ngModel)]="searchText"
+    />
+  </div>
+
+  <table *ngIf="filteredAdmins.length > 0">
+    <thead>
+      <tr>
+        <th>S.No</th>
+        <th>Admin Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Username</th>
+        <th>State</th>
+        <th>Aggregator</th>
+        <th>Status</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let admin of filteredAdmins; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>{{ admin.admin_name }}</td>
+        <td>{{ admin.email }}</td>
+        <td>{{ admin.phone_number }}</td>
+        <td>{{ admin.username }}</td>
+        <td>{{ admin.state }}</td>
+        <td>{{ admin.aggregator }}</td>
+        <td>
+          <span class="status-badge">
+            {{ admin.status }}
+          </span>
+        </td>
+        <td>
+          <button class="status-btn" (click)="toggleStatus(i)">
+            {{ admin.status === 'Active' ? 'Deactivate' : 'Activate' }}
+          </button>
+
+          <button class="delete-btn" (click)="deleteAdmin(i)">
+            Delete
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p class="empty-state" *ngIf="filteredAdmins.length === 0">
+    No dedicated admins found.
+  </p>
+
+</div>
+
+<div class="modal-backdrop" *ngIf="showAddModal">
+  <div class="modal">
+    <h2>Create Dedicated Admin</h2>
+
+    <form [formGroup]="adminForm">
+      <input type="text" placeholder="Admin Name" formControlName="adminName" />
+      <input type="email" placeholder="Email" formControlName="email" />
+      <input type="text" placeholder="Phone Number" formControlName="phoneNumber" />
+      <input type="text" placeholder="Username" formControlName="username" />
+      <input type="password" placeholder="Password" formControlName="password" />
+
+      <select formControlName="state">
+        <option value="">Select State</option>
+        <option value="Andhra Pradesh">Andhra Pradesh</option>
+        <option value="Delhi">Delhi</option>
+        <option value="Gujarat">Gujarat</option>
+        <option value="Haryana">Haryana</option>
+        <option value="Karnataka">Karnataka</option>
+        <option value="Maharashtra">Maharashtra</option>
+        <option value="Tamil Nadu">Tamil Nadu</option>
+        <option value="Telangana">Telangana</option>
+        <option value="Uttar Pradesh">Uttar Pradesh</option>
+      </select>
+
+      <select formControlName="aggregator">
+        <option value="">Select Aggregator</option>
+        <option value="JAYANT PREMISES CO OP SOC LTD">JAYANT PREMISES CO OP SOC LTD</option>
+        <option value="THE INSTITUTE OF CHARTERED ACCOUNTANTS OF INDIA">THE INSTITUTE OF CHARTERED ACCOUNTANTS OF INDIA</option>
+        <option value="APEX LABORATORIES PRIVATE LIMITED">APEX LABORATORIES PRIVATE LIMITED</option>
+        <option value="JUST DIAL LIMITED">JUST DIAL LIMITED</option>
+      </select>
+    </form>
+
+    <div class="buttons">
+      <button (click)="addAdmin()">Save</button>
+      <button (click)="closeAddModal()">Cancel</button>
+    </div>
+  </div>
+</div>
