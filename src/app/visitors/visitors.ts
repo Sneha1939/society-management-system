@@ -16,7 +16,7 @@ export class Visitors implements OnInit {
   visitors: any[] = [];
   searchText = '';
   showAddModal = false;
-
+aggregatorList: any[] = [];
   visitorForm = new FormGroup({
     spocDesignation: new FormControl('', Validators.required),
     spocName: new FormControl('', Validators.required),
@@ -29,9 +29,10 @@ export class Visitors implements OnInit {
     private cdr: ChangeDetectorRef
   ) {}
 
-  ngOnInit(): void {
-    this.loadVisitors();
-  }
+ ngOnInit(): void {
+  this.loadVisitors();
+  this.loadAggregatorList();
+}
 
   loadVisitors(): void {
     this.visitorService.getVisitors().subscribe({
@@ -44,6 +45,17 @@ export class Visitors implements OnInit {
       }
     });
   }
+  loadAggregatorList(): void {
+  fetch('/assets/aggregators.json')
+    .then(response => response.json())
+    .then(json => {
+      this.aggregatorList = json.data;
+      this.cdr.detectChanges();
+    })
+    .catch(error => {
+      console.log(error);
+    });
+}
 
   get filteredVisitors() {
     if (!this.searchText) {

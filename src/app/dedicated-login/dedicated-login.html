@@ -1,0 +1,35 @@
+<div class="login-container">
+
+  <div class="login-card">
+
+    <h1>Dedicated Admin Login</h1>
+
+    <p>
+      Login to verify workers assigned to your aggregator.
+    </p>
+
+    <form [formGroup]="loginForm">
+
+      <input
+        type="text"
+        placeholder="Username"
+        formControlName="username">
+
+      <input
+        type="password"
+        placeholder="Password"
+        formControlName="password">
+
+    </form>
+
+    <p class="error" *ngIf="errorMessage">
+      {{ errorMessage }}
+    </p>
+
+    <button (click)="login()">
+      Login
+    </button>
+
+  </div>
+
+</div>

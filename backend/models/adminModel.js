@@ -25,6 +25,18 @@ const AdminModel = {
     ], callback);
   },
 
+  loginAdmin: (username, password, callback) => {
+    const sql = `
+      SELECT *
+      FROM dedicated_admins
+      WHERE username = ?
+      AND password = ?
+      AND status = 'Active'
+    `;
+
+    db.query(sql, [username, password], callback);
+  },
+
   updateAdminStatus: (id, status, callback) => {
     const sql = 'UPDATE dedicated_admins SET status = ? WHERE id = ?';
     db.query(sql, [status, id], callback);

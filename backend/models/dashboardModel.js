@@ -4,10 +4,25 @@ const DashboardModel = {
   getStats: (callback) => {
     const sql = `
       SELECT
-        (SELECT COUNT(*) FROM residents) AS totalResidents,
-        (SELECT COUNT(*) FROM complaints) AS totalComplaints,
-        (SELECT COUNT(*) FROM complaints WHERE status = 'Waiting') AS waitingComplaints,
-        (SELECT COUNT(*) FROM complaints WHERE status = 'Resolved') AS resolvedComplaints
+        (SELECT COUNT(*) FROM workers) AS totalWorkers,
+
+        (
+          SELECT COUNT(*)
+          FROM workers
+          WHERE verification_status = 'Pending'
+        ) AS pendingWorkers,
+
+        (
+          SELECT COUNT(*)
+          FROM workers
+          WHERE verification_status = 'Verified'
+        ) AS verifiedWorkers,
+
+        (
+          SELECT COUNT(*)
+          FROM workers
+          WHERE verification_status = 'Rejected'
+        ) AS rejectedWorkers
     `;
 
     db.query(sql, callback);

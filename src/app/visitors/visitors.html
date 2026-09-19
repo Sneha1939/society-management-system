@@ -29,7 +29,7 @@
         <th>SPOC Designation</th>
         <th>SPOC Name</th>
         <th>DOB</th>
-        <th>Platform</th>
+        <th>Aggregator</th>
         <th>Status</th>
         <th>Action</th>
       </tr>
@@ -79,37 +79,95 @@
 
     <form [formGroup]="visitorForm">
 
-      <input
-        type="text"
-        placeholder="SPOC Designation"
-        formControlName="spocDesignation"
-      />
+      <div class="form-group">
+        <label>SPOC Designation</label>
 
-      <input
-        type="text"
-        placeholder="SPOC Name"
-        formControlName="spocName"
-      />
+        <input
+          type="text"
+          placeholder="Enter SPOC designation"
+          formControlName="spocDesignation"
+        />
 
-      <input
-        type="date"
-        formControlName="spocDob"
-      />
+        <p
+          class="error"
+          *ngIf="
+            visitorForm.get('spocDesignation')?.touched &&
+            visitorForm.get('spocDesignation')?.hasError('required')
+          "
+        >
+          SPOC designation is required
+        </p>
+      </div>
 
-      <select formControlName="platform">
-        <option value="">Select Platform</option>
-        <option value="Swiggy">Swiggy</option>
-        <option value="Zomato">Zomato</option>
-        <option value="Blinkit">Blinkit</option>
-        <option value="Zepto">Zepto</option>
-        <option value="Other">Other</option>
-      </select>
+      <div class="form-group">
+        <label>SPOC Name</label>
+
+        <input
+          type="text"
+          placeholder="Enter SPOC name"
+          formControlName="spocName"
+        />
+
+        <p
+          class="error"
+          *ngIf="
+            visitorForm.get('spocName')?.touched &&
+            visitorForm.get('spocName')?.hasError('required')
+          "
+        >
+          SPOC name is required
+        </p>
+      </div>
+
+      <div class="form-group">
+        <label>Date of Birth</label>
+
+        <input
+          type="date"
+          formControlName="spocDob"
+        />
+
+        <p
+          class="error"
+          *ngIf="
+            visitorForm.get('spocDob')?.touched &&
+            visitorForm.get('spocDob')?.hasError('required')
+          "
+        >
+          Date of birth is required
+        </p>
+      </div>
+
+      <div class="form-group">
+        <label>Aggregator</label>
+
+        <select formControlName="platform">
+          <option value="">Select Aggregator</option>
+
+          <option
+            *ngFor="let item of aggregatorList"
+            [value]="item.name"
+          >
+            {{ item.Code }} - {{ item.name }}
+          </option>
+        </select>
+
+        <p
+          class="error"
+          *ngIf="
+            visitorForm.get('platform')?.touched &&
+            visitorForm.get('platform')?.hasError('required')
+          "
+        >
+          Please select an aggregator
+        </p>
+      </div>
 
     </form>
 
     <div class="buttons">
-      <button (click)="addVisitor()">Save</button>
-      <button (click)="closeAddModal()">Cancel</button>
+      <button type="button" (click)="addVisitor()">Save</button>
+      <button type="button" (click)="closeAddModal()">Cancel</button>
     </div>
   </div>
 </div>

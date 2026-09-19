@@ -6,8 +6,7 @@
   <div class="welcome-banner">
 
     <div>
-      <h1>Welcome Admin 👋</h1>
-      <p>Super Admin Dashboard</p>
+      <h1>Welcome Admin</h1>
     </div>
 
     <div class="date-box">
@@ -30,7 +29,7 @@
 
       <div class="card-content">
         <h3>Total Workers</h3>
-        <h1>{{ stats.totalResidents }}</h1>
+<h1>{{ stats.totalWorkers }}</h1>
       </div>
 
     </mat-card>
@@ -44,8 +43,8 @@
       </div>
 
       <div class="card-content">
-        <h3>Unverified Workers</h3>
-        <h1>{{ stats.totalComplaints }}</h1>
+        <h3>Pending Workers</h3>
+<h1>{{ stats.pendingWorkers }}</h1>
       </div>
 
     </mat-card>
@@ -59,8 +58,8 @@
       </div>
 
       <div class="card-content">
-        <h3>Pending Workers</h3>
-        <h1>{{ stats.waitingComplaints }}</h1>
+        <h3>Verified Workers</h3>
+        <h1>{{ stats.verifiedWorkers }}</h1>
       </div>
 
     </mat-card>
@@ -74,8 +73,8 @@
       </div>
 
       <div class="card-content">
-        <h3>Verified Workers</h3>
-        <h1>{{ stats.resolvedComplaints }}</h1>
+        <h3>Rejected Workers</h3>
+        <h1>{{ stats.rejectedWorkers }}</h1>
       </div>
 
     </mat-card>

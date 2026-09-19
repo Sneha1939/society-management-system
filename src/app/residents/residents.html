@@ -70,19 +70,64 @@ Create and manage aggregators across different states.
         <form [formGroup]="residentForm">
 
     <input
-        type="text"
-        placeholder="Aggregator Name"
-        formControlName="fullName">
+  type="text"
+  formControlName="fullName"
+  placeholder="Aggregator Name">
+
+<p
+  class="error"
+  *ngIf="
+    residentForm.get('fullName')?.touched &&
+    residentForm.get('fullName')?.hasError('required')
+  ">
+  Aggregator name is required
+</p>
 
     <input
-        type="text"
-        placeholder="Contact Number"
-        formControlName="phoneNumber">
+  type="text"
+  formControlName="phoneNumber"
+  placeholder="Contact Number">
+
+<p
+  class="error"
+  *ngIf="
+    residentForm.get('phoneNumber')?.touched &&
+    residentForm.get('phoneNumber')?.hasError('required')
+  ">
+  Contact number is required
+</p>
+
+<p
+  class="error"
+  *ngIf="
+    residentForm.get('phoneNumber')?.touched &&
+    residentForm.get('phoneNumber')?.hasError('pattern')
+  ">
+  Enter a valid 10-digit contact number
+</p>
 
     <input
-        type="email"
-        placeholder="Email Address"
-        formControlName="email">
+  type="email"
+  formControlName="email"
+  placeholder="Email Address">
+
+<p
+  class="error"
+  *ngIf="
+    residentForm.get('email')?.touched &&
+    residentForm.get('email')?.hasError('required')
+  ">
+  Email is required
+</p>
+
+<p
+  class="error"
+  *ngIf="
+    residentForm.get('email')?.touched &&
+    residentForm.get('email')?.hasError('email')
+  ">
+  Please enter a valid email address
+</p>
 
     <select formControlName="state">
 
@@ -101,7 +146,14 @@ Create and manage aggregators across different states.
         <option value="Uttar Pradesh">Uttar Pradesh</option>
 
     </select>
-
+<p
+  class="error"
+  *ngIf="
+    residentForm.get('state')?.touched &&
+    residentForm.get('state')?.hasError('required')
+  ">
+  Please select a state
+</p>
     <select formControlName="aggregator">
   <option value="">Select Aggregator</option>
 
@@ -111,7 +163,14 @@ Create and manage aggregators across different states.
     {{ item.Code }} - {{ item.name }}
   </option>
 </select>
-
+<p
+  class="error"
+  *ngIf="
+    residentForm.get('aggregator')?.touched &&
+    residentForm.get('aggregator')?.hasError('required')
+  ">
+  Please select an aggregator
+</p>
 </form>
 
         <div class="buttons">

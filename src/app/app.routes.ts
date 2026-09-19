@@ -6,6 +6,8 @@ import { Residents } from './residents/residents';
 import { Visitors } from './visitors/visitors';
 import { Vehicles } from './vehicles/vehicles';
 import { Admins } from './admins/admins';
+import { WorkerVerification } from './worker-verification/worker-verification';
+import { DedicatedLogin } from './dedicated-login/dedicated-login';
 export const routes: Routes = [
   {
     path: '',
@@ -34,5 +36,13 @@ export const routes: Routes = [
 {
   path: 'admins',
   component: Admins
+},
+{
+  path: 'worker-verification',
+  component: WorkerVerification
+},
+{
+  path: 'dedicated-login',
+  component: DedicatedLogin
 }
 ];

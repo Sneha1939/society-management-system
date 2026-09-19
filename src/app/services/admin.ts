@@ -26,4 +26,13 @@ export class AdminService {
   deleteAdmin(id: number): Observable<any> {
     return this.http.delete<any>(`${this.apiUrl}/${id}`);
   }
+  login(username: string, password: string) {
+  return this.http.post<any>(
+    `${this.apiUrl}/login`,
+    {
+      username,
+      password
+    }
+  );
+}
 }
