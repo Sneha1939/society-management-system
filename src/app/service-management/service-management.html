@@ -1,0 +1,177 @@
+<div class="container">
+
+  <h2>Service Management</h2>
+
+  <div class="form-card">
+
+    <h3>
+      {{ editingId !== null ? 'Edit Service' : 'Add Service' }}
+    </h3>
+
+    <form
+      [formGroup]="serviceForm"
+      (ngSubmit)="saveService()"
+    >
+
+      <div class="form-group">
+
+        <label>Service Name</label>
+
+        <input
+          type="text"
+          formControlName="name"
+          placeholder="e.g. Electrician"
+        >
+
+        <small
+          class="error"
+          *ngIf="
+            serviceForm.get('name')?.touched &&
+            serviceForm.get('name')?.invalid
+          "
+        >
+          Service name is required.
+        </small>
+
+      </div>
+
+
+      <div class="form-group">
+
+        <label>Description</label>
+
+        <textarea
+          formControlName="description"
+          placeholder="Service description"
+        ></textarea>
+
+      </div>
+
+
+      <div class="form-group">
+
+        <label>Base Price</label>
+
+        <input
+          type="number"
+          formControlName="base_price"
+          placeholder="299"
+        >
+
+      </div>
+
+
+      <div class="form-group">
+
+        <label>Status</label>
+
+        <select formControlName="status">
+
+          <option value="ACTIVE">
+            Active
+          </option>
+
+          <option value="INACTIVE">
+            Inactive
+          </option>
+
+        </select>
+
+      </div>
+
+
+      <div class="buttons">
+
+        <button
+          type="submit"
+          class="primary-btn"
+        >
+          {{ editingId !== null ? 'Update Service' : 'Add Service' }}
+        </button>
+
+        <button
+          *ngIf="editingId !== null"
+          type="button"
+          class="cancel-btn"
+          (click)="resetForm()"
+        >
+          Cancel
+        </button>
+
+      </div>
+
+    </form>
+
+  </div>
+
+
+  <div class="table-card">
+
+    <h3>Available Services</h3>
+
+    <table>
+
+      <thead>
+
+        <tr>
+          <th>ID</th>
+          <th>Service</th>
+          <th>Description</th>
+          <th>Base Price</th>
+          <th>Status</th>
+          <th>Action</th>
+        </tr>
+
+      </thead>
+
+      <tbody>
+
+        <tr *ngFor="let service of services">
+
+          <td>
+            {{ service.id }}
+          </td>
+
+          <td>
+            {{ service.name }}
+          </td>
+
+          <td>
+            {{ service.description }}
+          </td>
+
+          <td>
+            ₹{{ service.base_price }}
+          </td>
+
+          <td>
+
+            <span
+              [class.active]="service.status === 'ACTIVE'"
+              [class.inactive]="service.status === 'INACTIVE'"
+            >
+              {{ service.status }}
+            </span>
+
+          </td>
+
+          <td>
+
+            <button
+              class="edit-btn"
+              (click)="editService(service)"
+            >
+              Edit
+            </button>
+
+          </td>
+
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+</div>
