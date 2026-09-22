@@ -9,6 +9,8 @@ const vehicleRoutes = require('./routes/vehicleRoutes');
 const adminRoutes = require('./routes/adminRoutes');
 const workerRoutes = require('./routes/workerRoutes');
 const serviceRoutes = require('./routes/serviceRoutes');
+const serviceRequestRoutes =
+    require('./routes/serviceRequestRoutes');
 const app = express();
 
 app.use(cors());
@@ -19,6 +21,7 @@ app.use('/visitors', visitorRoutes);
 app.use('/admins', adminRoutes);
 app.use('/workers', workerRoutes);
 app.use('/services', serviceRoutes);
+app.use('/service-requests', serviceRequestRoutes);
 app.get('/', (req, res) => {
     res.send('Society Management Backend Running');
 });
