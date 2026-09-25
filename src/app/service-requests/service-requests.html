@@ -1,0 +1,224 @@
+<div class="container">
+
+  <h2>Service Requests</h2>
+
+  <p class="subtitle">
+    View customer requests and assign suitable workers.
+  </p>
+
+
+  <div
+    class="success-message"
+    *ngIf="successMessage"
+  >
+    {{ successMessage }}
+  </div>
+
+
+  <div
+    class="error-message"
+    *ngIf="errorMessage"
+  >
+    {{ errorMessage }}
+  </div>
+
+
+  <p *ngIf="loading">
+    Loading service requests...
+  </p>
+
+
+  <div
+    class="table-card"
+    *ngIf="!loading"
+  >
+
+    <table>
+
+      <thead>
+
+        <tr>
+          <th>ID</th>
+          <th>Customer</th>
+          <th>Service</th>
+          <th>Problem</th>
+          <th>Date</th>
+          <th>Status</th>
+          <th>Action</th>
+        </tr>
+
+      </thead>
+
+
+      <tbody>
+
+        <tr *ngFor="let request of requests">
+
+          <td>
+            #{{ request.id }}
+          </td>
+
+          <td>
+
+            <strong>
+              {{ request.customer_name }}
+            </strong>
+
+            <br>
+
+            <small>
+              {{ request.customer_phone }}
+            </small>
+
+          </td>
+
+
+          <td>
+            {{ request.service_name }}
+          </td>
+
+
+          <td>
+            {{ request.description }}
+          </td>
+
+
+          <td>
+
+            {{ request.preferred_date | date:'dd MMM yyyy' }}
+
+            <br>
+
+            <small>
+              {{ request.preferred_time }}
+            </small>
+
+          </td>
+
+
+          <td>
+
+            <span
+              class="status"
+              [class.open]="request.status === 'OPEN'"
+              [class.assigned]="request.status === 'ASSIGNED'"
+            >
+              {{ request.status }}
+            </span>
+
+          </td>
+
+
+          <td>
+
+            <button
+              *ngIf="request.status === 'OPEN'"
+              class="find-btn"
+              (click)="findWorkers(request)"
+            >
+              Find Workers
+            </button>
+
+
+            <span
+              *ngIf="request.status !== 'OPEN'"
+            >
+              Assigned
+            </span>
+
+          </td>
+
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  <!-- Matching worker panel -->
+
+  <div
+    class="worker-panel"
+    *ngIf="selectedRequest"
+  >
+
+    <div class="worker-header">
+
+      <div>
+
+        <h3>
+          Matching Workers
+        </h3>
+
+        <p>
+          Request #{{ selectedRequest.id }}
+          —
+          {{ selectedRequest.service_name }}
+        </p>
+
+      </div>
+
+
+      <button
+        class="close-btn"
+        (click)="closeWorkers()"
+      >
+        Close
+      </button>
+
+    </div>
+
+
+    <p *ngIf="workersLoading">
+      Finding eligible workers...
+    </p>
+
+
+    <p
+      *ngIf="
+        !workersLoading &&
+        matchingWorkers.length === 0
+      "
+    >
+      No verified and available workers found.
+    </p>
+
+
+    <div
+      class="worker-card"
+      *ngFor="let worker of matchingWorkers"
+    >
+
+      <div>
+
+        <strong>
+          {{ worker.worker_name }}
+        </strong>
+
+        <p>
+          {{ worker.phone_number }}
+        </p>
+
+        <small>
+          {{ worker.service_name }}
+          •
+          {{ worker.availability_status }}
+        </small>
+
+      </div>
+
+
+      <button
+        class="assign-btn"
+        (click)="assignWorker(worker)"
+      >
+        Assign
+      </button>
+
+    </div>
+
+  </div>
+
+</div>

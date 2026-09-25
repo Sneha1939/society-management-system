@@ -1,0 +1,108 @@
+.container {
+  padding: 30px;
+}
+
+h2 {
+  margin-bottom: 5px;
+}
+
+.subtitle {
+  margin-bottom: 25px;
+}
+
+.table-card,
+.worker-panel {
+  background: white;
+  padding: 22px;
+  border-radius: 8px;
+  margin-bottom: 25px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  font-weight: 600;
+}
+
+.status {
+  font-weight: 600;
+}
+
+.open {
+  color: #e65100;
+}
+
+.assigned {
+  color: #1565c0;
+}
+
+.find-btn,
+.assign-btn,
+.close-btn {
+  border: none;
+  padding: 9px 14px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.find-btn,
+.assign-btn {
+  background: #1976d2;
+  color: white;
+}
+
+.close-btn {
+  background: #eeeeee;
+}
+
+.worker-panel {
+  margin-top: 25px;
+}
+
+.worker-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.worker-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 15px;
+  margin-top: 12px;
+
+  border: 1px solid #ddd;
+  border-radius: 6px;
+}
+
+.worker-card p {
+  margin: 5px 0;
+}
+
+.success-message,
+.error-message {
+  padding: 12px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.success-message {
+  background: #e8f5e9;
+}
+
+.error-message {
+  background: #ffebee;
+}

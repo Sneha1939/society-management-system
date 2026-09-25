@@ -5,6 +5,14 @@ const router = express.Router();
 
 router.get('/', WorkerController.getWorkers);
 
-router.put('/:id/status', WorkerController.updateStatus);
+router.get(
+  '/matching/:serviceCategoryId',
+  WorkerController.getMatchingWorkers
+);
+
+router.put(
+  '/:id/status',
+  WorkerController.updateStatus
+);
 
 module.exports = router;

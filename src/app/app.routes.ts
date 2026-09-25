@@ -10,6 +10,7 @@ import { WorkerVerification } from './worker-verification/worker-verification';
 import { DedicatedLogin } from './dedicated-login/dedicated-login';
 import { ServiceManagement } from './service-management/service-management';
 import { BookService } from './book-service/book-service';
+import { ServiceRequests } from './service-requests/service-requests';
 export const routes: Routes = [
   {
     path: '',
@@ -54,5 +55,9 @@ export const routes: Routes = [
 {
   path: 'book-service',
   component: BookService
+},
+{
+  path: 'service-requests',
+  component: ServiceRequests
 }
 ];

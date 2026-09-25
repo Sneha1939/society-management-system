@@ -18,4 +18,13 @@ export class ServiceRequestService {
   createRequest(request: any): Observable<any> {
     return this.http.post(this.apiUrl, request);
   }
+
+  getMatchingWorkers(
+    serviceCategoryId: number
+  ): Observable<any[]> {
+
+    return this.http.get<any[]>(
+      `http://localhost:3000/workers/matching/${serviceCategoryId}`
+    );
+  }
 }
